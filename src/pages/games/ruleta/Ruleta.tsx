@@ -51,6 +51,7 @@ export const Ruleta: React.FC = () => {
   const [result, setResult] = useState<Slice | null>(null);
   const bottleRef = useRef<HTMLImageElement | null>(null);
   const spinAudioRef = useRef<HTMLAudioElement | null>(null);
+  const resultAudioRef = useRef<HTMLAudioElement | null>(null);
 
   // Start the spin by rotating the bottle image in the center. The bottle's pointing
   // direction determines the selected slice.
@@ -68,7 +69,7 @@ export const Ruleta: React.FC = () => {
     const spins = 6;
     const randomOffset = Math.random() * 360;
     const finalRotation = spins * 360 + randomOffset;
-    const duration = 3 + Math.random() * 2; // Reducido de 4 a 3 segundos
+    const duration = 2 + Math.random() * 2; // Reducido de 3 a 2 segundos (rango: 2-4s)
 
     // apply transition and transform to the bottle element
     if (bottleRef.current) {
@@ -96,6 +97,12 @@ export const Ruleta: React.FC = () => {
         spinAudioRef.current.pause();
         spinAudioRef.current.currentTime = 0;
       }
+
+      // Play result sound
+      if (resultAudioRef.current) {
+        resultAudioRef.current.currentTime = 0;
+        resultAudioRef.current.play().catch(error => console.error('Error al reproducir audio de resultado:', error));
+      }
     }, duration * 1000 + 150);
   };
 
@@ -120,8 +127,9 @@ export const Ruleta: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 p-4" style={{ background: '#f5f5f5' }}>
-      {/* Hidden audio element for spin sound */}
+      {/* Hidden audio elements */}
       <audio ref={spinAudioRef} src="/sounds/clown.mp3" preload="auto" loop />
+      <audio ref={resultAudioRef} src="/sounds/cerveza_bote.mp3" preload="auto" />
       
       <div className="game-card p-6 max-w-xl w-full text-center">
         <h1 className="text-2xl font-bold mb-4">Juego de la ruleta</h1>

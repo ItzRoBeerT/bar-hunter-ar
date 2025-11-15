@@ -7,6 +7,7 @@ export interface Bar {
   imageUrl: string;
   rating: number;
   type: 'bar' | 'restaurante' | 'café';
+  joke?: string;
   gameType?: 'flip-card' | 'spin-bottle' | 'higher-lower';
 }
 
@@ -22,6 +23,7 @@ export const mockBars: Bar[] = [
     rating: 4.5,
     type: 'bar',
     gameType: 'flip-card',
+    joke: "¿Qué le dice una copa a otra? ¡Qué calor hace aquí!",
   },
   {
     id: '2',
@@ -32,6 +34,8 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&h=600&fit=crop',
     rating: 4.8,
     type: 'bar'
+  ,
+  joke: 'Un día me hice un análisis de sangre y me salió alcohol en la sangre... ¡y cerveza en el alma!'
   },
   {
     id: '3',
@@ -42,6 +46,8 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&h=600&fit=crop',
     rating: 4.6,
     type: 'café'
+  ,
+  joke: '¿Cuál es el colmo de un cervecero? Que le dé alergia al lúpulo.'
   },
   {
     id: '4',
@@ -52,6 +58,8 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop',
     rating: 4.7,
     type: 'restaurante'
+  ,
+  joke: 'En el mercado siempre hay algo para picar... y una buena excusa para brindar.'
   },
   {
     id: '5',
@@ -62,6 +70,8 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&h=600&fit=crop',
     rating: 4.4,
     type: 'bar'
+  ,
+  joke: '¿Sabes por qué los del bar son los mejores futbolistas? Porque siempre están dando la copa.'
   },
   {
     id: '6',
@@ -72,6 +82,8 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&h=600&fit=crop',
     rating: 4.9,
     type: 'restaurante'
+  ,
+  joke: 'Famoso por su horno, y por historias que se cuentan entre plato y plato.'
   },
   {
     id: '7',
@@ -82,6 +94,8 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&h=600&fit=crop',
     rating: 4.8,
     type: 'bar'
+  ,
+  joke: "Estaba en el bar y le digo al camarero: 'Ponme una cerveza, por favor'. Y me dice: '¿Fría?'"
   },
   {
     id: '8',
@@ -92,6 +106,8 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=600&fit=crop',
     rating: 4.5,
     type: 'café'
+  ,
+  joke: 'Mi médico me dijo que beba más agua; voy al bar y pido una cerveza. ¡Salud!'
   },
   {
     id: '9',
@@ -102,6 +118,8 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=600&fit=crop',
     rating: 4.7,
     type: 'restaurante'
+  ,
+  joke: 'Aquí las raciones vienen con historias y buena compañía.'
   },
   {
     id: '10',
@@ -112,7 +130,8 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://images.unsplash.com/photo-1544148103-0773bf10d330?w=800&h=600&fit=crop',
     rating: 4.6,
     type: 'bar',
-    gameType: 'flip-card'
+    gameType: 'flip-card',
+    joke: 'Beach vibes y cócteles: perfecto para perder la noción del tiempo.'
   },
   {
     id: '11',
@@ -123,7 +142,8 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/9f/59/90/bar-manolo.jpg?w=900&h=-1&s=1',
     rating: 4.9,
     type: 'restaurante',
-    gameType: 'spin-bottle'
+    gameType: 'spin-bottle',
+    joke: 'Y dice, mi abuelo cuando llegó a españa llegó con una mano delante y otra detrás. Qué era pobre? No, egipcio. (Risas)'
   },
   {
     id: '12',
@@ -134,6 +154,8 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&h=600&fit=crop',
     rating: 4.5,
     type: 'bar'
+  ,
+  joke: 'Vintage y cócteles: aquí las historias se sirven con hielo.'
   }
   ,
   {
@@ -145,6 +167,8 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=600&fit=crop',
     rating: 4.2,
     type: 'bar'
+  ,
+  joke: 'Un bar de barrio nunca falla: siempre hay una anécdota para compartir.'
   },
   {
     id: '14',
@@ -155,6 +179,8 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://images.unsplash.com/photo-1541542684-8e8f0e6d0f0f?w=800&h=600&fit=crop',
     rating: 4.3,
     type: 'restaurante'
+  ,
+  joke: 'Tapas & Tonic: la mezcla perfecta para contar un chiste entre bocado y bocado.'
   },
   {
     id: '15',
@@ -165,6 +191,8 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=800&h=600&fit=crop',
     rating: 4.1,
     type: 'café'
+  ,
+  joke: 'El café de la esquina siempre tiene el mejor plan: una taza y una charla larga.'
   },
   {
     id: '16',
@@ -175,6 +203,8 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=600&fit=crop',
     rating: 4.4,
     type: 'bar'
+  ,
+  joke: 'Rooftop Beats: donde hasta las estrellas vienen a pedir otra copa.'
   },
   {
     id: '17',
@@ -185,6 +215,8 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://images.unsplash.com/photo-1526318472351-c75fcf070fe0?w=800&h=600&fit=crop',
     rating: 4.6,
     type: 'bar'
+  ,
+  joke: 'En la bodega siempre hay una historia añeja y una copa para acompañarla.'
   },
   {
     id: '18',
@@ -196,6 +228,8 @@ export const mockBars: Bar[] = [
     rating: 4.0,
     type: 'restaurante',
     gameType: 'higher-lower'
+  ,
+  joke: 'Bistro Azul: el color del mar y el sabor de una buena conversación.'
   },
   {
     id: '19',
@@ -206,6 +240,8 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://images.unsplash.com/photo-1541542684-8e8f0e6d0f0f?w=800&h=600&fit=crop',
     rating: 4.3,
     type: 'bar'
+  ,
+  joke: 'Si sales tarde, busca el local que nunca cierra: la música y las risas siguen ahí.'
   },
   {
     id: '20',
@@ -216,6 +252,8 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=800&h=600&fit=crop',
     rating: 4.2,
     type: 'café'
+  ,
+  joke: 'Plantas, brunch y risas: el café perfecto para un domingo lento.'
   },
   {
     id: '21',
@@ -226,6 +264,8 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://images.unsplash.com/photo-1544148103-0773bf10d330?w=800&h=600&fit=crop',
     rating: 4.5,
     type: 'bar'
+  ,
+  joke: 'Tapas al atardecer: el plan para una buena despedida de sol.'
   },
   {
     id: '22',
@@ -236,5 +276,7 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=800&h=600&fit=crop',
     rating: 4.1,
     type: 'café'
+  ,
+  joke: 'Plaza Coffee House: un rincón para cafés largos y conversaciones cortas.'
   }
 ];

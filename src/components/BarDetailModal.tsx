@@ -26,10 +26,14 @@ const spanishBarJokes = [
 	'¿Por qué los camareros son tan buenos en matemáticas? Porque saben sacar la cuenta perfectamente.',
 ];
 
-const getBarJoke = (barId: string) => {
+const getBarJoke = (bar: Bar) => {
+	// Prefer the explicit joke stored on the bar (from mockBars). If missing,
+	// fall back to a deterministic selection based on the bar id.
+	if (bar.joke && bar.joke.length > 0) return bar.joke;
+
 	let hash = 0;
-	for (let i = 0; i < barId.length; i++) {
-		hash = barId.charCodeAt(i) + ((hash << 5) - hash);
+	for (let i = 0; i < bar.id.length; i++) {
+		hash = bar.id.charCodeAt(i) + ((hash << 5) - hash);
 	}
 	const index = Math.abs(hash) % spanishBarJokes.length;
 	return spanishBarJokes[index];
@@ -39,6 +43,7 @@ export const BarDetailModal = ({ bar, userLocation, onClose }: BarDetailModalPro
 	const { profile, addCheckIn } = useGameStore();
 	const [isCheckingIn, setIsCheckingIn] = useState(false);
 	const [isPlayingJoke, setIsPlayingJoke] = useState(false); // New state for playing status
+	const [showJoke, setShowJoke] = useState(false); // New state to toggle showing the joke text
 	const audioRef = useRef<HTMLAudioElement>(null); // Ref for the audio element
 	const navigate = useNavigate();
 
@@ -58,7 +63,7 @@ export const BarDetailModal = ({ bar, userLocation, onClose }: BarDetailModalPro
 
 	const hasCheckedIn = profile.checkIns.some((checkIn) => checkIn.barId === bar.id);
 
-	const barJoke = getBarJoke(bar.id);
+		const barJoke = getBarJoke(bar);
 
 	const handleCheckIn = () => {
 		if (!canCheckIn) {
@@ -115,14 +120,9 @@ export const BarDetailModal = ({ bar, userLocation, onClose }: BarDetailModalPro
 			console.log(`Simulando reproducción del chiste: "${barJoke}"`);
 			console.log(`URL de audio simulada: ${simulatedAudioUrl}`);
 
-			if (audioRef.current) {
-				audioRef.current.src = simulatedAudioUrl;
-				audioRef.current.load(); // Load the new audio source
-				await audioRef.current.play(); // Play the audio
-				audioRef.current.onended = () => setIsPlayingJoke(false); // Reset state when audio ends
-			} else {
-				setIsPlayingJoke(false);
-			}
+      const audio = new Audio('/sounds/ComandanteLara.mp3');
+      audio.volume = 0.7;
+      audio.play();
 		} catch (error) {
 			console.error('Error al reproducir el chiste:', error);
 			toast.error('No se pudo reproducir el chiste. ¡Inténtalo de nuevo!');
@@ -172,22 +172,36 @@ export const BarDetailModal = ({ bar, userLocation, onClose }: BarDetailModalPro
 					{/* Address */}
 					<p className="text-sm text-muted-foreground">{bar.address}</p>
 
-					{/* --- UPDATED: Description with the unique joke and audio button --- */}
-					<div className="flex items-center justify-between bg-gray-100 dark:bg-gray-800 p-3 rounded-lg">
-						<p className="text-sm italic text-gray-700 dark:text-gray-300 flex-1 mr-2">"{barJoke}"</p>
-						<Button
-							onClick={playJokeAudio}
-							disabled={isPlayingJoke} // Disable while audio is playing
-							variant="ghost"
-							size="icon"
-							className="w-10 h-10 flex-shrink-0"
-						>
-							{isPlayingJoke ? (
-								<span className="animate-pulse">🎶</span> // Simple animation/indicator
-							) : (
-								<Volume2 className="w-5 h-5" />
-							)}
-						</Button>
+					<div className="flex flex-col gap-2 bg-muted/30 dark:bg-muted/70 p-3 rounded-lg border border-border">
+						<div className="flex items-center justify-between">
+							<h3 className="text-sm font-semibold text-muted-foreground">Chiste</h3>
+
+							<div className="flex items-center gap-2">
+								<Button
+									onClick={playJokeAudio}
+									disabled={isPlayingJoke}
+									variant="ghost"
+									size="sm"
+								>
+									<div className="flex items-center gap-2">
+										{isPlayingJoke ? <span className="animate-pulse">🎶</span> : <Volume2 className="w-4 h-4" />}
+										<span className="text-sm">Escuchar</span>
+									</div>
+								</Button>
+
+								<Button
+									onClick={() => setShowJoke((s) => !s)}
+									variant="outline"
+									size="sm"
+								>
+									<span className="text-sm">Leer</span>
+								</Button>
+							</div>
+						</div>
+
+						{showJoke && (
+							<p className="text-sm italic text-muted-foreground mt-1">"{barJoke}"</p>
+						)}
 					</div>
 
 					{/* Hidden audio element */}

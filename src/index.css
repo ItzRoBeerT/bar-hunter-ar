@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -95,7 +96,94 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Montserrat', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 700;
+    color: #FFA500;
+  }
+
+  /* Force all textual content to white. */
+  body * {
+    color: #FFFFFF !important;
+  }
+
+  /* Make the main header (the element with class bg-card) have a white background
+     while keeping existing borders and shadows. Uses !important to override utilities. */
+  header.bg-card {
+    background-color: #D73719 !important;
+    border-color: #b02b13 !important;
+  }
+
+  /* Ensure `bg-clip-text` elements render white text by default (user requested white letters).
+     If you want gradient text instead for specific headings, override locally. */
+  .bg-clip-text {
+    color: #FFFFFF !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+  }
+
+  /* Ensure the header title is white (contrasts with the new header background). */
+  header.bg-card h1.bg-clip-text {
+    background-image: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    color: #FFFFFF !important;
+  }
+
+  /* Specific style for the small level badge in the header: make it lighter orange with white text */
+  .level-badge {
+    background-color: #E85D3F !important;
+    color: #FFFFFF !important;
+    border-color: #d44d2f !important;
+  }
+
+  /* Specific style for the points badge: same orange color as level badge */
+  .points-badge {
+    background-color: #E85D3F !important;
+    color: #FFFFFF !important;
+    border-color: #d44d2f !important;
+  }
+
+  /* Make the bouncing user control fully white and set its icon color to the
+     app accent (#D73719) for contrast. Targets the structure:
+     <div class="relative animate-bounce-subtle">
+       <div class="absolute inset-0 bg-primary rounded-full blur-lg ..."></div>
+       <div class="relative bg-primary ...">...svg...</div>
+     </div>
+  */
+  .relative.animate-bounce-subtle > .absolute.inset-0.bg-primary {
+    background-color: #FFFFFF !important;
+  }
+
+  .relative.animate-bounce-subtle > .relative.bg-primary {
+    background-color: #FFFFFF !important;
+    color: #D73719 !important; /* svg uses currentColor for stroke/fill */
+    border-color: #e6e6e6 !important;
+  }
+
+  /* Make Mapbox control icons (the black parts) render in white so they
+     contrast against dark backgrounds. Covers the control container and
+     its inner SVG elements. */
+  .mapboxgl-ctrl-icon,
+  .mapboxgl-ctrl-icon svg,
+  .mapboxgl-ctrl-icon * {
+    color: #FFFFFF !important;
+    fill: #FFFFFF !important;
+    stroke: #FFFFFF !important;
+    background-color: transparent !important;
+  }
+
+  /* Make the decorative overlay inside `.game-button` white while keeping its
+     blur and opacity behavior. Targets the absolute overlay div used in map pin buttons. */
+  .game-button > .absolute.-inset-2.bg-secondary {
+    background-color: #D73719 !important;
+  }
+
+  /* Make buttons white by default, but exclude buttons used as game controls
+     (they have the `game-button` class). This keeps special buttons' styles intact. */
+  button:not(.game-button), [role="button"]:not(.game-button) {
+    background-color: #D73719 !important;
+    color: #FFFFFF !important;
+    border-color: #b02b13 !important;
   }
 }
 

@@ -54,16 +54,12 @@ const Index = () => {
   return (
     <div className="flex flex-col h-screen bg-background">
       {/* Header */}
-      <header className="bg-card border-b border-border px-4 py-3 flex items-center justify-between z-10 shadow-lg">
+      <header className="bg-card border-b border-border px-4 py-3 flex items-center justify-center z-10 shadow-lg">
         <div className="flex items-center gap-3">
           <div className="text-2xl">🍺</div>
           <h1 className="text-xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-            BarQuest
+            Alcanza la Victoria
           </h1>
-        </div>
-        
-        <div className="flex items-center gap-2">
-        <a href='/games/card-game'>test</a>
         </div>
       </header>
 
@@ -84,7 +80,7 @@ const Index = () => {
             <SheetTrigger asChild>
               <Button size="lg" className="rounded-full shadow-lg glow-effect">
                 <MapIcon className="w-5 h-5 mr-2" />
-                Nearby
+                  Bares cercanos
               </Button>
             </SheetTrigger>
             <SheetContent side="bottom" className="h-[70vh] overflow-y-auto">
