@@ -7,7 +7,6 @@ export interface Bar {
   imageUrl: string;
   rating: number;
   type: 'bar' | 'restaurant' | 'café';
-  gameType?: 'flip-card' | 'spin-bottle';
 }
 
 export const mockBars: Bar[] = [
@@ -20,8 +19,7 @@ export const mockBars: Bar[] = [
     description: 'Authentic Spanish tapas in the heart of Barcelona. Known for their patatas bravas and vermouth.',
     imageUrl: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&h=600&fit=crop',
     rating: 4.5,
-    type: 'bar',
-    gameType: 'flip-card',
+    type: 'bar'
   },
   {
     id: '2',
@@ -122,7 +120,7 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=800&h=600&fit=crop',
     rating: 4.9,
     type: 'restaurant',
-    gameType: 'flip-card'
+    gameType: 'ruleta'
   },
   {
     id: '12',

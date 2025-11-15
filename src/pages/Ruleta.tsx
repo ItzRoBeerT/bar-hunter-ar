@@ -107,7 +107,7 @@ export const Ruleta: React.FC = () => {
       <div className="game-card p-6 max-w-xl w-full text-center">
         <h1 className="text-2xl font-bold mb-4">Juego de la ruleta</h1>
         {bar ? (
-          <h2 className="text-xl font-semibold mb-2">{bar.name}</h2>
+          <h2 className="text-xl font-semibold mb-2">en {bar.name}</h2>
         ) : (
           <p className="mb-6 text-muted-foreground">Bar no encontrado</p>
         )}
@@ -139,7 +139,7 @@ export const Ruleta: React.FC = () => {
                         <g transform={`translate(${iconPos.x - 10}, ${iconPos.y - 10})`}>
                           <rect x={0} y={0} width={40} height={40} rx={8} ry={8} fill="rgba(255,255,255,0.06)" />
                           <g transform={`translate(10,10)`}>{s.icon}</g>
-                          <text x={20} y={34} fontSize={10} fill="#ffffff" textAnchor="middle">{s.label}</text>
+                          <text x={20} y={34} fontSize={10} fill="#ffffff" textAnchor="middle"></text>
                         </g>
                       </g>
                     );
@@ -151,7 +151,7 @@ export const Ruleta: React.FC = () => {
               <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center">
                 <img
                   ref={bottleRef}
-                  src="https://www.bodecall.com/images/stories/virtuemart/product/02010440cerveza-victoria-malaga-33-botella.png"
+                  src="https://rizatoledodistribuciones.es/wp-content/uploads/2024/06/Victoria-Malacati.png"
                   alt="botella"
                   onClick={startSpin}
                   className={`w-24 h-24 object-contain cursor-pointer ${spinning ? 'opacity-80' : ''}`}

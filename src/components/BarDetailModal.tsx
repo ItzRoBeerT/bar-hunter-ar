@@ -226,6 +226,15 @@ export const BarDetailModal = ({ bar, userLocation, onClose }: BarDetailModalPro
                 </>
               )}
             </Button>
+            {bar.gameType === 'ruleta' && (
+              <Button
+                onClick={() => navigate(`/ruleta/${bar.id}`)}
+                className="flex-1"
+                variant="default"
+              >
+                Jugar
+              </Button>
+            )}
           </div>
 
           
