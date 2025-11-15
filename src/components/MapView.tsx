@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import Map, { Marker, Layer, Source } from 'react-map-gl';
 import { MapPin, Navigation, User } from 'lucide-react';
 import { mockBars, Bar } from '@/data/mockBars';
@@ -22,8 +22,14 @@ export const MapView = ({ userLocation, onCenterUser }: MapViewProps) => {
   
   const mapRef = useRef<any>(null);
   const [mapboxToken, setMapboxToken] = useState(() => {
+    localStorage.setItem('mapbox_token', 'pk.eyJ1Ijoicm9iZXJ0aW5pIiwiYSI6ImNtaTBlNTNoazBvdjgyanNmaThydzY1MzIifQ.ugFau2Tx9yqaSQU_xGWIaA')
     return localStorage.getItem('mapbox_token') || '';
   });
+
+  // Log user location changes for debugging
+  useEffect(() => {
+    console.log('User location changed:', userLocation);
+  }, [userLocation]);
 
   const handleTokenSubmit = (token: string) => {
     localStorage.setItem('mapbox_token', token);
