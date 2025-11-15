@@ -14,7 +14,17 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Montserrat", "Inter", "-apple-system", "BlinkMacSystemFont", "'Segoe UI'", "sans-serif"],
+        sans: [
+          'ui-sans-serif',
+          'system-ui',
+          '-apple-system',
+          'Segoe UI',
+          'Roboto',
+          'Helvetica Neue',
+          'Arial',
+          'Noto Sans',
+          'sans-serif',
+        ],
       },
       colors: {
         border: "hsl(var(--border))",
