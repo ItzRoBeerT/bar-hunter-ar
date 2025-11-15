@@ -157,12 +157,14 @@ export const Ruleta: React.FC = () => {
                   className={`w-24 h-24 object-contain cursor-pointer ${spinning ? 'opacity-80' : ''}`}
                   style={{ transform: `rotate(${rotation}deg)` }}
                 />
-                <div className="text-xs text-muted-foreground mt-2">Pulsa la botella para girar</div>
               </div>
             </div>
           </div>
 
           <div className="w-full max-w-xs">
+            <div className="text-center mb-3">
+              <div className="text-sm font-semibold text-foreground">Pulsa la botella para girar</div>
+            </div>
             <div className="mb-4">
               <Button onClick={() => navigate(-1)} variant="outline" className="w-full">Volver</Button>
             </div>
