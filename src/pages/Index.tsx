@@ -63,7 +63,7 @@ const Index = () => {
         </div>
         
         <div className="flex items-center gap-2">
-        <a href='/games/SpinBottle'>test</a>
+        <a href='/games/card-game'>test</a>
         </div>
       </header>
 
