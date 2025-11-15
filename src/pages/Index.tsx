@@ -12,7 +12,6 @@ import { Badge } from '@/components/ui/badge';
 const Index = () => {
   const { location, loading, error } = useUserLocation();
   const { profile } = useGameStore();
-  const [showProfile, setShowProfile] = useState(false);
   const [mapKey, setMapKey] = useState(0);
 
   const handleBarClick = (barId: string) => {
@@ -64,25 +63,7 @@ const Index = () => {
         </div>
         
         <div className="flex items-center gap-2">
-          <Badge variant="secondary" className="flex items-center gap-1 points-badge">
-            <Trophy className="w-3 h-3" />
-            <span className="font-bold">{profile.points}</span>
-          </Badge>
-          
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setShowProfile(true)}
-            className="relative"
-          >
-            <User className="w-5 h-5" />
-            <Badge 
-              variant="default" 
-              className="absolute -top-1 -right-1 w-5 h-5 p-0 flex items-center justify-center text-xs level-badge"
-            >
-              {profile.level}
-            </Badge>
-          </Button>
+        <a href='/games/card-game'>test</a>
         </div>
       </header>
 
@@ -125,9 +106,6 @@ const Index = () => {
           />
         </div>
       </div>
-
-      {/* Profile Modal */}
-      {showProfile && <UserProfile onClose={() => setShowProfile(false)} />}
     </div>
   );
 };

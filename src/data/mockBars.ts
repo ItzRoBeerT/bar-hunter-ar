@@ -6,7 +6,7 @@ export interface Bar {
   description: string;
   imageUrl: string;
   rating: number;
-  type: 'bar' | 'restaurant' | 'café';
+  type: 'bar' | 'restaurante' | 'café';
   gameType?: 'flip-card' | 'spin-bottle';
 }
 
@@ -51,7 +51,7 @@ export const mockBars: Bar[] = [
     description: 'Iconic market hall with gourmet food stands and wine bars.',
     imageUrl: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop',
     rating: 4.7,
-    type: 'restaurant'
+    type: 'restaurante'
   },
   {
     id: '5',
@@ -65,13 +65,13 @@ export const mockBars: Bar[] = [
   },
   {
     id: '6',
-    name: 'Botín Restaurant',
+    name: 'Botín restaurante',
     coordinates: [2.1845503791450893 + 0.0016, 41.380841369044106 - 0.0021],
     address: 'Calle Cuchilleros 17, Barcelona',
-    description: 'World\'s oldest restaurant according to Guinness. Famous for roast suckling pig.',
+    description: 'World\'s oldest restaurante according to Guinness. Famous for roast suckling pig.',
     imageUrl: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&h=600&fit=crop',
     rating: 4.9,
-    type: 'restaurant'
+    type: 'restaurante'
   },
   {
     id: '7',
@@ -101,7 +101,7 @@ export const mockBars: Bar[] = [
     description: 'Traditional Spanish cuisine. Famous for their huevos rotos.',
     imageUrl: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=600&fit=crop',
     rating: 4.7,
-    type: 'restaurant'
+    type: 'restaurante'
   },
   {
     id: '10',
@@ -111,7 +111,8 @@ export const mockBars: Bar[] = [
     description: 'Beach-themed bar with sand floor. Tropical cocktails and chill vibes.',
     imageUrl: 'https://images.unsplash.com/photo-1544148103-0773bf10d330?w=800&h=600&fit=crop',
     rating: 4.6,
-    type: 'bar'
+    type: 'bar',
+    gameType: 'spin-bottle'
   },
   {
     id: '11',
@@ -119,10 +120,10 @@ export const mockBars: Bar[] = [
     coordinates: [2.1845503791450893 + 0.0035, 41.380841369044106 + 0.0052],
     address: 'Calle Serrano 52, Barcelona',
     description: 'Avant-garde Asian street food. Michelin-starred chef\'s casual concept.',
-    imageUrl: 'https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=800&h=600&fit=crop',
+    imageUrl: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/9f/59/90/bar-manolo.jpg?w=900&h=-1&s=1',
     rating: 4.9,
-    type: 'restaurant',
-    gameType: 'flip-card'
+    type: 'restaurante',
+    gameType: 'spin-bottle'
   },
   {
     id: '12',
@@ -153,7 +154,7 @@ export const mockBars: Bar[] = [
     description: 'Small tapas place and great tonics.',
     imageUrl: 'https://images.unsplash.com/photo-1541542684-8e8f0e6d0f0f?w=800&h=600&fit=crop',
     rating: 4.3,
-    type: 'restaurant'
+    type: 'restaurante'
   },
   {
     id: '15',
@@ -193,7 +194,7 @@ export const mockBars: Bar[] = [
     description: 'Casual bistro serving Mediterranean dishes.',
     imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=600&fit=crop',
     rating: 4.0,
-    type: 'restaurant'
+    type: 'restaurante'
   },
   {
     id: '19',
