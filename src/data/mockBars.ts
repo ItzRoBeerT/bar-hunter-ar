@@ -7,7 +7,7 @@ export interface Bar {
   imageUrl: string;
   rating: number;
   type: 'bar' | 'restaurante' | 'café';
-  gameType?: 'flip-card' | 'spin-bottle';
+  gameType?: 'flip-card' | 'spin-bottle' | 'higher-lower';
 }
 
 export const mockBars: Bar[] = [
@@ -194,7 +194,8 @@ export const mockBars: Bar[] = [
     description: 'Casual bistro serving Mediterranean dishes.',
     imageUrl: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=600&fit=crop',
     rating: 4.0,
-    type: 'restaurante'
+    type: 'restaurante',
+    gameType: 'higher-lower'
   },
   {
     id: '19',

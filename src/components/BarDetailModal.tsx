@@ -235,6 +235,17 @@ export const BarDetailModal = ({ bar, userLocation, onClose }: BarDetailModalPro
                 Jugar
               </Button>
             )}
+            {
+              bar.gameType === 'higher-lower' && (
+              <Button
+                onClick={() => navigate(`games/higher-lower/${bar.id}`)}
+                className="flex-1"
+                variant="default"
+              >
+                Jugar
+              </Button>
+            )
+            }
           </div>
 
           
