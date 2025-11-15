@@ -161,6 +161,12 @@ export const BarDetailModal = ({ bar, userLocation, onClose }: BarDetailModalPro
 
         {/* Content */}
         <div className="p-6 space-y-4">
+          {/* Title */}
+          <div>
+            <h2 className="text-2xl font-bold mb-2">{bar.name}</h2>
+          </div>
+
+
           {/* Distance */}
           <div className="flex items-center gap-2 text-muted-foreground">
             <MapPin className="w-4 h-4" />
