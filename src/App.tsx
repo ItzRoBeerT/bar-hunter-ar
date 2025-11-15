@@ -8,6 +8,7 @@ import NotFound from './pages/NotFound';
 import BarGame from './pages/BarGame';
 import Ruleta from './pages/Ruleta';
 import CardGamePage from './pages/games/CardGame';
+import { HigherLower } from './pages/HigherLower';
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
 					<Route path="/game/:barId" element={<BarGame />} />
 					<Route path="/ruleta/:barId" element={<Ruleta />} />
 					<Route path="/games/card-game" element={<CardGamePage />} />
+          <Route path="/games/higher-lower" element={<HigherLower />} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</BrowserRouter>
