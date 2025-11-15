@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { X, MapPin, Star, CheckCircle, Navigation as NavigationIcon } from 'lucide-react';
+import { useState, useRef } from 'react'; // Import useRef for the audio element
+import { X, MapPin, Star, CheckCircle, Navigation as NavigationIcon, Volume2 } from 'lucide-react'; // Added Volume2 icon
 import { Bar } from '@/data/mockBars';
 import { UserLocation } from '@/hooks/useUserLocation';
 import { calculateDistance, formatDistance, isWithinCheckInRange } from '@/utils/distance';
@@ -15,9 +15,31 @@ interface BarDetailModalProps {
   onClose: () => void;
 }
 
+const spanishBarJokes = [
+  "¿Qué le dice una copa a otra? '¡Qué calor hace aquí!'",
+  "Un día me hice un análisis de sangre y me salió que tenía alcohol en la sangre... ¡y cerveza en el alma!",
+  "¿Cuál es el colmo de un cervecero? Que le dé alergia al lúpulo.",
+  "Estaba en el bar y le digo al camarero: 'Ponme una cerveza, por favor'. Y me dice: '¿Fría?'. Le digo: 'No, ponme la que tengas, que ya me encargo yo de enfriarla'.",
+  "Mi médico me ha dicho que tengo que beber más agua. Así que voy al bar y pido una cerveza, que tiene un 90% de agua. ¡Salud!",
+  "¿Sabes por qué los del bar son los mejores futbolistas? Porque siempre están 'dando la copa'.",
+  "En un bar: 'Camarero, ¿tiene ranas?'. 'No'. 'Pues traiga dos cañas, que la sed me mata'.",
+  "¿Por qué los camareros son tan buenos en matemáticas? Porque saben sacar la cuenta perfectamente."
+];
+
+const getBarJoke = (barId: string) => {
+  let hash = 0;
+  for (let i = 0; i < barId.length; i++) {
+    hash = barId.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const index = Math.abs(hash) % spanishBarJokes.length;
+  return spanishBarJokes[index];
+};
+
 export const BarDetailModal = ({ bar, userLocation, onClose }: BarDetailModalProps) => {
   const { profile, addCheckIn } = useGameStore();
   const [isCheckingIn, setIsCheckingIn] = useState(false);
+  const [isPlayingJoke, setIsPlayingJoke] = useState(false); // New state for playing status
+  const audioRef = useRef<HTMLAudioElement>(null); // Ref for the audio element
   const navigate = useNavigate();
   
   const distance = calculateDistance(
@@ -36,15 +58,15 @@ export const BarDetailModal = ({ bar, userLocation, onClose }: BarDetailModalPro
 
   const hasCheckedIn = profile.checkIns.some(checkIn => checkIn.barId === bar.id);
 
+  const barJoke = getBarJoke(bar.id);
+
   const handleCheckIn = () => {
     if (!canCheckIn) {
-      toast.error('You need to be within 50m to check in!');
+      toast.error('¡Necesitas estar a menos de 50m para fichar!');
       return;
     }
 
     setIsCheckingIn(true);
-    
-    // Navigate to game screen on check-in
     navigate(`/game/${bar.id}`);
   };
 
@@ -55,10 +77,52 @@ export const BarDetailModal = ({ bar, userLocation, onClose }: BarDetailModalPro
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'bar': return 'bg-secondary text-secondary-foreground';
+      case 'bar': return 'bg-yellow-500 text-black font-semibold';
       case 'restaurant': return 'bg-primary text-primary-foreground';
       case 'café': return 'bg-accent text-accent-foreground';
       default: return 'bg-muted text-muted-foreground';
+    }
+  };
+
+  // --- NEW: Function to handle playing the joke audio ---
+  const playJokeAudio = async () => {
+    if (isPlayingJoke) return; // Prevent multiple clicks
+    setIsPlayingJoke(true);
+
+    // --- IMPORTANT: This is where you'd integrate your TTS service or fetch audio ---
+    // For demonstration, we'll simulate fetching an audio URL.
+    // In a real app, you'd call your backend/TTS API here.
+    try {
+      // Example: If you have pre-generated audio files named after joke hashes:
+      // const audioUrl = `/audio/jokes/${bar.id}.mp3`;
+      
+      // OR, if using a TTS API:
+      // const response = await fetch('/api/text-to-speech', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ text: barJoke, voice: 'spanish-charismatic' })
+      // });
+      // const data = await response.json();
+      // const audioUrl = data.audioUrl;
+
+      // For this example, we'll use a placeholder and console log the joke.
+      // You'd replace this with the actual URL from your TTS service or CDN.
+      const simulatedAudioUrl = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'; // Placeholder audio
+      console.log(`Simulando reproducción del chiste: "${barJoke}"`);
+      console.log(`URL de audio simulada: ${simulatedAudioUrl}`);
+
+      if (audioRef.current) {
+        audioRef.current.src = simulatedAudioUrl;
+        audioRef.current.load(); // Load the new audio source
+        await audioRef.current.play(); // Play the audio
+        audioRef.current.onended = () => setIsPlayingJoke(false); // Reset state when audio ends
+      } else {
+        setIsPlayingJoke(false);
+      }
+    } catch (error) {
+      console.error("Error al reproducir el chiste:", error);
+      toast.error('No se pudo reproducir el chiste. ¡Inténtalo de nuevo!');
+      setIsPlayingJoke(false);
     }
   };
 
@@ -71,7 +135,7 @@ export const BarDetailModal = ({ bar, userLocation, onClose }: BarDetailModalPro
       />
       
       {/* Modal */}
-      <div className="relative w-full sm:max-w-lg bg-card rounded-t-3xl sm:rounded-3xl shadow-2xl slide-in-up overflow-hidden border border-border">
+      <div className="relative w-full sm:max_w-lg bg-card rounded-t-3xl sm:rounded-3xl shadow-2xl slide-in-up overflow-hidden border border-border">
         {/* Close button */}
         <button
           onClick={onClose}
@@ -91,45 +155,43 @@ export const BarDetailModal = ({ bar, userLocation, onClose }: BarDetailModalPro
           
           {/* Type badge */}
           <Badge className={`absolute top-4 left-4 ${getTypeColor(bar.type)} capitalize`}>
-            {bar.type}
+            {bar.type === 'bar' ? 'Cervecería' : bar.type}
           </Badge>
         </div>
 
         {/* Content */}
         <div className="p-6 space-y-4">
-          {/* Title and rating */}
-          <div>
-            <h2 className="text-2xl font-bold mb-2">{bar.name}</h2>
-            <div className="flex items-center gap-2">
-              <div className="flex items-center gap-1">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className={`w-4 h-4 ${
-                      i < Math.floor(bar.rating)
-                        ? 'fill-secondary text-secondary'
-                        : 'text-muted'
-                    }`}
-                  />
-                ))}
-              </div>
-              <span className="text-sm text-muted-foreground">
-                {bar.rating} / 5
-              </span>
-            </div>
-          </div>
-
           {/* Distance */}
           <div className="flex items-center gap-2 text-muted-foreground">
             <MapPin className="w-4 h-4" />
-            <span className="text-sm">{formatDistance(distance)} away</span>
+            <span className="text-sm">¡A {formatDistance(distance)} de tus cañas!</span>
           </div>
 
           {/* Address */}
           <p className="text-sm text-muted-foreground">{bar.address}</p>
 
-          {/* Description */}
-          <p className="text-sm">{bar.description}</p>
+          {/* --- UPDATED: Description with the unique joke and audio button --- */}
+          <div className="flex items-center justify-between bg-gray-100 dark:bg-gray-800 p-3 rounded-lg">
+            <p className="text-sm italic text-gray-700 dark:text-gray-300 flex-1 mr-2">
+              "{barJoke}"
+            </p>
+            <Button
+              onClick={playJokeAudio}
+              disabled={isPlayingJoke} // Disable while audio is playing
+              variant="ghost"
+              size="icon"
+              className="w-10 h-10 flex-shrink-0"
+            >
+              {isPlayingJoke ? (
+                <span className="animate-pulse">🎶</span> // Simple animation/indicator
+              ) : (
+                <Volume2 className="w-5 h-5" />
+              )}
+            </Button>
+          </div>
+
+          {/* Hidden audio element */}
+          <audio ref={audioRef} preload="auto" />
 
           {/* Actions */}
           <div className="flex gap-3 pt-2">
@@ -142,38 +204,25 @@ export const BarDetailModal = ({ bar, userLocation, onClose }: BarDetailModalPro
               {isCheckingIn ? (
                 <>
                   <CheckCircle className="w-4 h-4 mr-2 animate-spin" />
-                  Checking in...
+                  ¡Fichando...!
                 </>
               ) : hasCheckedIn ? (
                 <>
                   <CheckCircle className="w-4 h-4 mr-2" />
-                  Checked in
+                  ¡Ya has fichado aquí!
                 </>
               ) : !canCheckIn ? (
-                `Too far (${formatDistance(distance)})`
+                `Demasiado lejos (${formatDistance(distance)})`
               ) : (
                 <>
                   <CheckCircle className="w-4 h-4 mr-2" />
-                  Check in
+                  ¡Fichar y a por la birra!
                 </>
               )}
             </Button>
-            
-            <Button
-              onClick={handleGetDirections}
-              variant="outline"
-              size="icon"
-              className="w-12"
-            >
-              <NavigationIcon className="w-4 h-4" />
-            </Button>
           </div>
 
-          {!canCheckIn && (
-            <p className="text-xs text-muted-foreground text-center">
-              Get within 50m to check in and earn 10 points!
-            </p>
-          )}
+          
         </div>
       </div>
     </div>
