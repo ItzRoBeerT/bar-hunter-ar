@@ -7,6 +7,7 @@ import { useGameStore } from '@/hooks/useGameStore';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { toast } from 'sonner';
+import { useNavigate } from 'react-router-dom';
 
 interface BarDetailModalProps {
   bar: Bar;
@@ -17,6 +18,7 @@ interface BarDetailModalProps {
 export const BarDetailModal = ({ bar, userLocation, onClose }: BarDetailModalProps) => {
   const { profile, addCheckIn } = useGameStore();
   const [isCheckingIn, setIsCheckingIn] = useState(false);
+  const navigate = useNavigate();
   
   const distance = calculateDistance(
     userLocation.latitude,
@@ -42,20 +44,8 @@ export const BarDetailModal = ({ bar, userLocation, onClose }: BarDetailModalPro
 
     setIsCheckingIn(true);
     
-    // Simulate check-in animation
-    setTimeout(() => {
-      addCheckIn(bar.id);
-      setIsCheckingIn(false);
-      toast.success(
-        <div className="flex items-center gap-2">
-          <CheckCircle className="w-5 h-5 text-accent" />
-          <div>
-            <div className="font-bold">Check-in successful!</div>
-            <div className="text-sm">+10 points earned</div>
-          </div>
-        </div>
-      );
-    }, 600);
+    // Navigate to game screen on check-in
+    navigate(`/game/${bar.id}`);
   };
 
   const handleGetDirections = () => {
