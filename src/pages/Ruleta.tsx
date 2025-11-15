@@ -186,9 +186,6 @@ export const Ruleta: React.FC = () => {
                     <div className="text-sm">{result.label}</div>
                   </div>
                 </div>
-                <div className="mt-3 flex gap-2">
-                  <Button onClick={reset} variant="outline">Jugar otra vez</Button>
-                </div>
               </div>
             ) : (
               <p className="text-sm text-muted-foreground">Pulsa "Iniciar Ruleta" para girar y recibir un reto.</p>
