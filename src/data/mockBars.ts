@@ -142,9 +142,8 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/9f/59/90/bar-manolo.jpg?w=900&h=-1&s=1',
     rating: 4.9,
     type: 'restaurante',
-    gameType: 'spin-bottle'
-  ,
-  joke: 'Si la botella gira, que la suerte elija la próxima ronda.'
+    gameType: 'spin-bottle',
+    joke: 'Y dice, mi abuelo cuando llegó a españa llegó con una mano delante y otra detrás. Qué era pobre? No, egipcio. (Risas)'
   },
   {
     id: '12',
