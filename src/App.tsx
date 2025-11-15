@@ -23,7 +23,7 @@ const App = () => (
 					<Route path="/game/:barId" element={<BarGame />} />
 					<Route path="/games/ruleta" element={<Ruleta />} />
 					<Route path="/games/card-game" element={<CardGamePage />} />
-          <Route path="/games/higher-lower" element={<HigherLower />} />
+          			<Route path="/games/higher-lower" element={<HigherLower />} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</BrowserRouter>
