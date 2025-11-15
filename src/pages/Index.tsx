@@ -59,12 +59,12 @@ const Index = () => {
         <div className="flex items-center gap-3">
           <div className="text-2xl">🍺</div>
           <h1 className="text-xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-            BarQuest
+            Alcanza la Victoria
           </h1>
         </div>
         
         <div className="flex items-center gap-2">
-          <Badge variant="secondary" className="flex items-center gap-1">
+          <Badge variant="secondary" className="flex items-center gap-1 points-badge">
             <Trophy className="w-3 h-3" />
             <span className="font-bold">{profile.points}</span>
           </Badge>
@@ -78,7 +78,7 @@ const Index = () => {
             <User className="w-5 h-5" />
             <Badge 
               variant="default" 
-              className="absolute -top-1 -right-1 w-5 h-5 p-0 flex items-center justify-center text-xs"
+              className="absolute -top-1 -right-1 w-5 h-5 p-0 flex items-center justify-center text-xs level-badge"
             >
               {profile.level}
             </Badge>
@@ -103,7 +103,7 @@ const Index = () => {
             <SheetTrigger asChild>
               <Button size="lg" className="rounded-full shadow-lg glow-effect">
                 <MapIcon className="w-5 h-5 mr-2" />
-                Nearby
+                  Bares cercanos
               </Button>
             </SheetTrigger>
             <SheetContent side="bottom" className="h-[70vh] overflow-y-auto">
