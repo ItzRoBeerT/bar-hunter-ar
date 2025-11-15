@@ -154,7 +154,7 @@ export const Ruleta: React.FC = () => {
                   src="https://rizatoledodistribuciones.es/wp-content/uploads/2024/06/Victoria-Malacati.png"
                   alt="botella"
                   onClick={startSpin}
-                  className={`w-24 h-24 object-contain cursor-pointer ${spinning ? 'opacity-80' : ''}`}
+                  className={`w-36 h-36 md:w-44 md:h-44 object-contain cursor-pointer transition-opacity duration-300 ${spinning ? 'opacity-100' : 'opacity-100'}`}
                   style={{ transform: `rotate(${rotation}deg)` }}
                 />
               </div>

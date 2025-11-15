@@ -111,7 +111,8 @@ export const mockBars: Bar[] = [
     description: 'Beach-themed bar with sand floor. Tropical cocktails and chill vibes.',
     imageUrl: 'https://images.unsplash.com/photo-1544148103-0773bf10d330?w=800&h=600&fit=crop',
     rating: 4.6,
-    type: 'bar'
+    type: 'bar',
+    gameType: 'spin-bottle'
   },
   {
     id: '11',
@@ -119,7 +120,7 @@ export const mockBars: Bar[] = [
     coordinates: [2.1845503791450893 + 0.0035, 41.380841369044106 + 0.0052],
     address: 'Calle Serrano 52, Barcelona',
     description: 'Avant-garde Asian street food. Michelin-starred chef\'s casual concept.',
-    imageUrl: 'https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=800&h=600&fit=crop',
+    imageUrl: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/9f/59/90/bar-manolo.jpg?w=900&h=-1&s=1',
     rating: 4.9,
     type: 'restaurante',
     gameType: 'spin-bottle'
