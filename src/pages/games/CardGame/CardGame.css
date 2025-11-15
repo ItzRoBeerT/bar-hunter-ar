@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  color: #D73719;
 }
 
 .card-game-container h1 {
@@ -50,7 +51,7 @@
 }
 
 .add-player-form button:hover {
-  background: #45a049;
+  background: #D73719;
 }
 
 .players-list {
