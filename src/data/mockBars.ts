@@ -112,7 +112,7 @@ export const mockBars: Bar[] = [
     imageUrl: 'https://images.unsplash.com/photo-1544148103-0773bf10d330?w=800&h=600&fit=crop',
     rating: 4.6,
     type: 'bar',
-    gameType: 'spin-bottle'
+    gameType: 'flip-card'
   },
   {
     id: '11',
