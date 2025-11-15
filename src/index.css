@@ -209,6 +209,17 @@ All colors MUST be HSL.
 		color: #ffffff !important;
 		border-color: #b02b13 !important;
 	}
+  
+  /* Style the dialog/modal with #D73719 */
+  [role="dialog"] {
+    background-color: #D73719 !important;
+  }
+  
+  /* Style game buttons inside the dialog with a darker tone than #D73719 */
+  [role="dialog"] .game-button {
+    background-color: #B5290E !important;
+    border-color: #8a1f08 !important;
+  }
 }
 
 @layer utilities {
