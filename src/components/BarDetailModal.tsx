@@ -26,10 +26,14 @@ const spanishBarJokes = [
 	'¿Por qué los camareros son tan buenos en matemáticas? Porque saben sacar la cuenta perfectamente.',
 ];
 
-const getBarJoke = (barId: string) => {
+const getBarJoke = (bar: Bar) => {
+	// Prefer the explicit joke stored on the bar (from mockBars). If missing,
+	// fall back to a deterministic selection based on the bar id.
+	if (bar.joke && bar.joke.length > 0) return bar.joke;
+
 	let hash = 0;
-	for (let i = 0; i < barId.length; i++) {
-		hash = barId.charCodeAt(i) + ((hash << 5) - hash);
+	for (let i = 0; i < bar.id.length; i++) {
+		hash = bar.id.charCodeAt(i) + ((hash << 5) - hash);
 	}
 	const index = Math.abs(hash) % spanishBarJokes.length;
 	return spanishBarJokes[index];
@@ -58,7 +62,7 @@ export const BarDetailModal = ({ bar, userLocation, onClose }: BarDetailModalPro
 
 	const hasCheckedIn = profile.checkIns.some((checkIn) => checkIn.barId === bar.id);
 
-	const barJoke = getBarJoke(bar.id);
+		const barJoke = getBarJoke(bar);
 
 	const handleCheckIn = () => {
 		if (!canCheckIn) {
