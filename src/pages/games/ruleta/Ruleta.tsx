@@ -291,7 +291,7 @@ export const Ruleta: React.FC = () => {
                           textShadow: '2px 2px 4px rgba(0,0,0,0.1)',
                         }}
                       >
-                        🎉 ¡TU RETO! 🎉
+                        ¡TU RETO! 🎉
                       </div>
                       <div 
                         className="text-xl font-bold"
