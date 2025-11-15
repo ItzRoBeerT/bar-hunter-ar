@@ -1,0 +1,197 @@
+.card-game-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.card-game-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #ff6b35;
+}
+
+.setup-section {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.setup-section h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.add-player-form {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.add-player-form input {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  min-width: 250px;
+}
+
+.add-player-form button {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.add-player-form button:hover {
+  background: #45a049;
+}
+
+.players-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.player-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.player-item button {
+  background: #ff4757;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.start-button {
+  padding: 1rem 3rem;
+  font-size: 1.25rem;
+  background: #ff6b35;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.start-button:hover {
+  background: #ff5722;
+  transform: translateY(-2px);
+}
+
+.game-section {
+  margin-top: 2rem;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.player-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #333;
+  margin: 0;
+}
+
+.result-section {
+  background: #fff3cd;
+  border: 3px solid #ffc107;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 2rem;
+  animation: fadeIn 0.5s;
+}
+
+.result-section h2 {
+  color: #ff6b35;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.drinks-count {
+  font-size: 3rem;
+  margin: 1rem 0;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.action-buttons button {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.action-buttons button:first-child {
+  background: #4CAF50;
+  color: white;
+}
+
+.action-buttons button:last-child {
+  background: #2196F3;
+  color: white;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+  
+  .add-player-form {
+    flex-direction: column;
+  }
+  
+  .add-player-form input {
+    min-width: 100%;
+  }
+}

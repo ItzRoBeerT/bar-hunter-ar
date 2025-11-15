@@ -1,3 +1,11 @@
+export interface Player {
+  id: string;
+  name: string;
+  avatar: string;
+  points: number;
+  level: number;
+}
+
 export interface UserProfile {
   id: string;
   name: string;
