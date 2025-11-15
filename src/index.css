@@ -8,247 +8,264 @@ All colors MUST be HSL.
 */
 
 @layer base {
-  :root {
-    /* Gaming-inspired color system */
-    --background: 220 25% 10%;
-    --foreground: 210 40% 98%;
+	:root {
+		/* Gaming-inspired color system */
+		--background: 220 25% 10%;
+		--foreground: 210 40% 98%;
 
-    --card: 220 25% 14%;
-    --card-foreground: 210 40% 98%;
+		--card: 220 25% 14%;
+		--card-foreground: 210 40% 98%;
 
-    --popover: 220 25% 12%;
-    --popover-foreground: 210 40% 98%;
+		--popover: 220 25% 12%;
+		--popover-foreground: 210 40% 98%;
 
-    --primary: 217 91% 60%;
-    --primary-foreground: 0 0% 100%;
+		--primary: 217 91% 60%;
+		--primary-foreground: 0 0% 100%;
 
-    --secondary: 25 95% 53%;
-    --secondary-foreground: 0 0% 100%;
+		--secondary: 25 95% 53%;
+		--secondary-foreground: 0 0% 100%;
 
-    --muted: 220 15% 25%;
-    --muted-foreground: 215 20% 65%;
+		--muted: 220 15% 25%;
+		--muted-foreground: 215 20% 65%;
 
-    --accent: 142 76% 36%;
-    --accent-foreground: 0 0% 100%;
+		--accent: 142 76% 36%;
+		--accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+		--destructive: 0 84% 60%;
+		--destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 20%;
-    --input: 220 15% 18%;
-    --ring: 217 91% 60%;
+		--border: 220 15% 20%;
+		--input: 220 15% 18%;
+		--ring: 217 91% 60%;
 
-    --radius: 0.75rem;
+		--radius: 0.75rem;
 
-    /* Custom gaming tokens */
-    --game-glow: 217 91% 60%;
-    --game-success: 142 76% 36%;
-    --game-warning: 38 92% 50%;
-    --game-gradient: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(142 76% 36%) 100%);
-    --game-card-shadow: 0 10px 40px -10px hsl(217 91% 60% / 0.3);
-    --check-in-glow: 0 0 30px hsl(var(--game-success) / 0.6);
-    
-    --sidebar-background: 220 25% 12%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 217 91% 60%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 25% 16%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 220 15% 20%;
-    --sidebar-ring: 217 91% 60%;
-  }
+		/* Custom gaming tokens */
+		--game-glow: 217 91% 60%;
+		--game-success: 142 76% 36%;
+		--game-warning: 38 92% 50%;
+		--game-gradient: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(142 76% 36%) 100%);
+		--game-card-shadow: 0 10px 40px -10px hsl(217 91% 60% / 0.3);
+		--check-in-glow: 0 0 30px hsl(var(--game-success) / 0.6);
 
-  .dark {
-    --background: 220 25% 10%;
-    --foreground: 210 40% 98%;
-    --card: 220 25% 14%;
-    --card-foreground: 210 40% 98%;
-    --popover: 220 25% 12%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217 91% 60%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 25 95% 53%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 220 15% 25%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 142 76% 36%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 220 15% 20%;
-    --input: 220 15% 18%;
-    --ring: 217 91% 60%;
-    --sidebar-background: 220 25% 12%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 217 91% 60%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 25% 16%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 220 15% 20%;
-    --sidebar-ring: 217 91% 60%;
-  }
+		--sidebar-background: 220 25% 12%;
+		--sidebar-foreground: 210 40% 98%;
+		--sidebar-primary: 217 91% 60%;
+		--sidebar-primary-foreground: 0 0% 100%;
+		--sidebar-accent: 220 25% 16%;
+		--sidebar-accent-foreground: 210 40% 98%;
+		--sidebar-border: 220 15% 20%;
+		--sidebar-ring: 217 91% 60%;
+	}
+
+	.dark {
+		--background: 220 25% 10%;
+		--foreground: 210 40% 98%;
+		--card: 220 25% 14%;
+		--card-foreground: 210 40% 98%;
+		--popover: 220 25% 12%;
+		--popover-foreground: 210 40% 98%;
+		--primary: 217 91% 60%;
+		--primary-foreground: 0 0% 100%;
+		--secondary: 25 95% 53%;
+		--secondary-foreground: 0 0% 100%;
+		--muted: 220 15% 25%;
+		--muted-foreground: 215 20% 65%;
+		--accent: 142 76% 36%;
+		--accent-foreground: 0 0% 100%;
+		--destructive: 0 84% 60%;
+		--destructive-foreground: 0 0% 100%;
+		--border: 220 15% 20%;
+		--input: 220 15% 18%;
+		--ring: 217 91% 60%;
+		--sidebar-background: 220 25% 12%;
+		--sidebar-foreground: 210 40% 98%;
+		--sidebar-primary: 217 91% 60%;
+		--sidebar-primary-foreground: 0 0% 100%;
+		--sidebar-accent: 220 25% 16%;
+		--sidebar-accent-foreground: 210 40% 98%;
+		--sidebar-border: 220 15% 20%;
+		--sidebar-ring: 217 91% 60%;
+	}
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
+	* {
+		@apply border-border;
+	}
 
-  body {
-    @apply bg-background text-foreground;
-    font-family: 'Montserrat', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-weight: 700;
-    color: #FFA500;
-  }
+	body {
+		@apply bg-background text-foreground;
+		font-family: 'Montserrat', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+		font-weight: 700;
+		color: #ffa500;
+	}
 
-  /* Force all textual content to white. */
-  body * {
-    color: #FFFFFF !important;
-  }
+	/* Force all textual content to white. */
+	body * {
+		color: #ffffff !important;
+	}
 
-  /* Make the main header (the element with class bg-card) have a white background
+	/* Make the main header (the element with class bg-card) have a white background
      while keeping existing borders and shadows. Uses !important to override utilities. */
-  header.bg-card {
-    background-color: #D73719 !important;
-    border-color: #b02b13 !important;
-  }
+	header.bg-card {
+		background-color: #d73719 !important;
+		border-color: #b02b13 !important;
+	}
 
-  /* Ensure `bg-clip-text` elements render white text by default (user requested white letters).
+	/* Ensure `bg-clip-text` elements render white text by default (user requested white letters).
      If you want gradient text instead for specific headings, override locally. */
-  .bg-clip-text {
-    color: #FFFFFF !important;
-    -webkit-background-clip: initial !important;
-    background-clip: initial !important;
-  }
+	.bg-clip-text {
+		color: #ffffff !important;
+		-webkit-background-clip: initial !important;
+		background-clip: initial !important;
+	}
 
-  /* Ensure the header title is white (contrasts with the new header background). */
-  header.bg-card h1.bg-clip-text {
-    background-image: none !important;
-    -webkit-background-clip: initial !important;
-    background-clip: initial !important;
-    color: #FFFFFF !important;
-  }
+	/* Ensure the header title is white (contrasts with the new header background). */
+	header.bg-card h1.bg-clip-text {
+		background-image: none !important;
+		-webkit-background-clip: initial !important;
+		background-clip: initial !important;
+		color: #ffffff !important;
+	}
 
-  /* Specific style for the small level badge in the header: make it lighter orange with white text */
-  .level-badge {
-    background-color: #E85D3F !important;
-    color: #FFFFFF !important;
-    border-color: #d44d2f !important;
-  }
+	/* Specific style for the small level badge in the header: make it lighter orange with white text */
+	.level-badge {
+		background-color: #e85d3f !important;
+		color: #ffffff !important;
+		border-color: #d44d2f !important;
+	}
 
-  /* Specific style for the points badge: same orange color as level badge */
-  .points-badge {
-    background-color: #E85D3F !important;
-    color: #FFFFFF !important;
-    border-color: #d44d2f !important;
-  }
+	/* Specific style for the points badge: same orange color as level badge */
+	.points-badge {
+		background-color: #e85d3f !important;
+		color: #ffffff !important;
+		border-color: #d44d2f !important;
+	}
 
-  /* Make the bouncing user control fully white and set its icon color to the
+	/* Make the bouncing user control fully white and set its icon color to the
      app accent (#D73719) for contrast. Targets the structure:
      <div class="relative animate-bounce-subtle">
        <div class="absolute inset-0 bg-primary rounded-full blur-lg ..."></div>
        <div class="relative bg-primary ...">...svg...</div>
      </div>
   */
-  .relative.animate-bounce-subtle > .absolute.inset-0.bg-primary {
-    background-color: #FFFFFF !important;
-  }
+	.relative.animate-bounce-subtle > .absolute.inset-0.bg-primary {
+		background-color: #ffffff !important;
+	}
 
-  .relative.animate-bounce-subtle > .relative.bg-primary {
-    background-color: #FFFFFF !important;
-    color: #D73719 !important; /* svg uses currentColor for stroke/fill */
-    border-color: #e6e6e6 !important;
-  }
+	.relative.animate-bounce-subtle > .relative.bg-primary {
+		background-color: #ffffff !important;
+		color: #d73719 !important; /* svg uses currentColor for stroke/fill */
+		border-color: #e6e6e6 !important;
+	}
 
-  /* Make Mapbox control icons (the black parts) render in white so they
+	/* Make Mapbox control icons (the black parts) render in white so they
      contrast against dark backgrounds. Covers the control container and
      its inner SVG elements. */
-  .mapboxgl-ctrl-icon,
-  .mapboxgl-ctrl-icon svg,
-  .mapboxgl-ctrl-icon * {
-    color: #FFFFFF !important;
-    fill: #FFFFFF !important;
-    stroke: #FFFFFF !important;
-    background-color: transparent !important;
-  }
+	.mapboxgl-ctrl-icon,
+	.mapboxgl-ctrl-icon svg,
+	.mapboxgl-ctrl-icon * {
+		color: #ffffff !important;
+		fill: #ffffff !important;
+		stroke: #ffffff !important;
+		background-color: transparent !important;
+	}
 
-  /* Make the decorative overlay inside `.game-button` white while keeping its
+	/* Make the decorative overlay inside `.game-button` white while keeping its
      blur and opacity behavior. Targets the absolute overlay div used in map pin buttons. */
-  .game-button > .absolute.-inset-2.bg-secondary {
-    background-color: #D73719 !important;
-  }
+	.game-button > .absolute.-inset-2.bg-secondary {
+		background-color: #d73719 !important;
+	}
 
-  /* Make buttons white by default, but exclude buttons used as game controls
+	/* Make buttons white by default, but exclude buttons used as game controls
      (they have the `game-button` class). This keeps special buttons' styles intact. */
-  button:not(.game-button), [role="button"]:not(.game-button) {
-    background-color: #D73719 !important;
-    color: #FFFFFF !important;
-    border-color: #b02b13 !important;
-  }
+	button:not(.game-button),
+	[role='button']:not(.game-button) {
+		background-color: #d73719 !important;
+		color: #ffffff !important;
+		border-color: #b02b13 !important;
+	}
 }
 
 @layer utilities {
-  .game-card {
-    @apply bg-card border border-border rounded-xl shadow-lg;
-    box-shadow: var(--game-card-shadow);
-  }
-  
-  .game-button {
-    @apply transition-all duration-300 hover:scale-105 active:scale-95;
-  }
-  
-  .glow-effect {
-    box-shadow: 0 0 20px hsl(var(--game-glow) / 0.5);
-  }
-  
-  .check-in-animation {
-    animation: checkInPulse 0.6s ease-out;
-  }
-  
-  @keyframes checkInPulse {
-    0%, 100% {
-      transform: scale(1);
-      opacity: 1;
-    }
-    50% {
-      transform: scale(1.1);
-      opacity: 0.8;
-    }
-  }
-  
-  @keyframes slideInUp {
-    from {
-      transform: translateY(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  
-  .slide-in-up {
-    animation: slideInUp 0.3s ease-out;
-  }
+	.game-card {
+		@apply bg-card border border-border rounded-xl shadow-lg;
+		box-shadow: var(--game-card-shadow);
+	}
 
-  @keyframes bounce-in {
-    0% {
-      opacity: 0;
-      transform: scale(0.3);
-    }
-    50% {
-      transform: scale(1.05);
-    }
-    70% {
-      transform: scale(0.9);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
+	.game-button {
+		@apply transition-all duration-300 hover:scale-105 active:scale-95;
+	}
 
-  .animate-bounce-in {
-    animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
+	.glow-effect {
+		box-shadow: 0 0 20px hsl(var(--game-glow) / 0.5);
+	}
+
+	.check-in-animation {
+		animation: checkInPulse 0.6s ease-out;
+	}
+
+	@keyframes checkInPulse {
+		0%,
+		100% {
+			transform: scale(1);
+			opacity: 1;
+		}
+		50% {
+			transform: scale(1.1);
+			opacity: 0.8;
+		}
+	}
+
+	@keyframes slideInUp {
+		from {
+			transform: translateY(100%);
+			opacity: 0;
+		}
+		to {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+
+	.slide-in-up {
+		animation: slideInUp 0.3s ease-out;
+	}
+
+	@keyframes bounce-in {
+		0% {
+			opacity: 0;
+			transform: scale(0.3);
+		}
+		50% {
+			transform: scale(1.05);
+		}
+		70% {
+			transform: scale(0.9);
+		}
+		100% {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	.animate-bounce-in {
+		animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	}
+
+	@keyframes slide-down {
+		from {
+			opacity: 0;
+			transform: translateY(-10px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.animate-slide-down {
+		animation: slide-down 0.2s ease-out;
+	}
 }
