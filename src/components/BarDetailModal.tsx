@@ -167,6 +167,15 @@ export const BarDetailModal = ({ bar, userLocation, onClose }: BarDetailModalPro
             >
               <NavigationIcon className="w-4 h-4" />
             </Button>
+
+            {/* Ruleta game button */}
+            <Button
+              onClick={() => navigate(`/ruleta/${bar.id}`)}
+              variant="secondary"
+              className="ml-2"
+            >
+              Juego de la ruleta
+            </Button>
           </div>
 
           {!canCheckIn && (
