@@ -106,20 +106,6 @@ All colors MUST be HSL.
   body * {
     color: #FFA500 !important;
   }
-
-  /* Apply a white background behind typical text elements to act like a highlight.
-     Exclude interactive form controls and buttons to avoid breaking UI elements. */
-  body :where(h1,h2,h3,h4,h5,h6,p,span,a,li,label,small,strong,em,b,i,code,kbd,mark,cite,blockquote,figcaption,td,th,caption)
-    :not(input):not(textarea):not(select) {
-    background-color: #ffffff;
-  }
-
-  /* Also make buttons and button-like elements have a white background while
-     keeping their text orange. Exclude inputs to avoid changing form controls. */
-  button, [role="button"] {
-    background-color: #ffffff !important;
-    color: #FFA500 !important;
-  }
 }
 
 @layer utilities {
