@@ -126,97 +126,196 @@ export const Ruleta: React.FC = () => {
   const cy = size / 2;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 p-4" style={{ background: '#f5f5f5' }}>
+    <div className="min-h-screen p-4" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
       {/* Hidden audio elements */}
       <audio ref={spinAudioRef} src="/sounds/clown.mp3" preload="auto" loop />
       <audio ref={resultAudioRef} src="/sounds/cerveza_bote.mp3" preload="auto" />
-      
-      <div className="game-card p-6 max-w-xl w-full text-center">
-        <h1 className="text-2xl font-bold mb-4">Juego de la ruleta</h1>
-        {bar ? (
-          <h2 className="text-xl font-semibold mb-2">en {bar.name}</h2>
-        ) : (
-          <p className="mb-6 text-muted-foreground">Bar no encontrado</p>
-        )}
 
-        <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-          <div className="relative">
-            {/* Pointer */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 -top-6 z-20">
-              <div className="w-0 h-0 border-l-8 border-r-8 border-b-12 border-transparent border-b-accent-foreground" style={{borderBottomColor: 'rgba(30,41,59,0.9)'}} />
-            </div>
+      <div className="max-w-6xl mx-auto">
+        {/* Title section */}
+        <div className="text-center mb-8">
+          <h1 
+            className="text-6xl font-extrabold mb-4 animate-bounce"
+            style={{ 
+              color: 'white',
+              textShadow: '0 4px 8px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.5)',
+            }}
+          >
+            🎯 Ruleta de Retos 🎯
+          </h1>
+          {bar && (
+            <h2 className="text-3xl font-bold" style={{ color: '#fff', textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
+              en {bar.name}
+            </h2>
+          )}
+          <p style={{ color: 'rgba(255,255,255,0.9)', marginTop: '0.5rem', fontSize: '1.2rem' }}>
+            ¡Gira y acepta el desafío más loco! 🎪
+          </p>
+        </div>
 
-            {/* Wheel container */}
-            <div className="w-[360px] h-[360px] md:w-[420px] md:h-[420px] rounded-full shadow-lg overflow-hidden relative">
-              <svg
-                viewBox={`0 0 ${size} ${size}`}
-                className="w-full h-full block"
-              >
-                <g>
-                  {slices.map((s, i) => {
-                    const startAngle = i * anglePer;
-                    const endAngle = startAngle + anglePer;
-                    const path = describeArc(cx, cy, radius, startAngle, endAngle);
-                    // position icon roughly at slice center
-                    const midAngle = startAngle + anglePer / 2;
-                    const iconPos = polarToCartesian(cx, cy, radius * 0.6, midAngle);
-                    return (
-                      <g key={s.id}>
-                        <path d={path} fill={s.color} stroke="#111827" strokeWidth={0.5} />
-                        <g transform={`translate(${iconPos.x - 10}, ${iconPos.y - 10})`}>
-                          <rect x={0} y={0} width={40} height={40} rx={8} ry={8} fill="rgba(255,255,255,0.06)" />
-                          <g transform={`translate(10,10)`}>{s.icon}</g>
-                          <text x={20} y={34} fontSize={10} fill="#ffffff" textAnchor="middle"></text>
-                        </g>
-                      </g>
-                    );
-                  })}
-                </g>
-              </svg>
-
-              {/* center label - clickable bottle */}
-              <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center">
-                <img
-                  ref={bottleRef}
-                  src="https://rizatoledodistribuciones.es/wp-content/uploads/2024/06/Victoria-Malacati.png"
-                  alt="botella"
-                  onClick={startSpin}
-                  className={`w-36 h-36 md:w-44 md:h-44 object-contain cursor-pointer transition-opacity duration-300 ${spinning ? 'opacity-100' : 'opacity-100'}`}
-                  style={{ transform: `rotate(${rotation}deg)` }}
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full max-w-xs">
-            <div className="text-center mb-3">
-              <div className="text-sm font-semibold text-foreground">Pulsa la botella para girar</div>
-            </div>
-            <div className="mb-4">
-              <Button onClick={() => navigate(-1)} variant="outline" className="w-full">Volver</Button>
-            </div>
-
-            <div className="mb-4">
-              <Button onClick={startSpin} disabled={spinning} className="w-full">
-                {spinning ? 'Girando...' : 'Iniciar Ruleta'}
-              </Button>
-            </div>
-
-            {result ? (
-              <div className="p-4 bg-muted rounded-md text-left">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 flex items-center justify-center rounded-md" style={{background: result.color}}>
-                    {result.icon}
-                  </div>
-                  <div>
-                    <div className="font-semibold">Resultado</div>
-                    <div className="text-sm">{result.label}</div>
-                  </div>
+        {/* Main game area */}
+        <div 
+          className="rounded-3xl shadow-2xl p-8"
+          style={{
+            background: 'white',
+            boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 8px rgba(255,255,255,0.3)',
+            border: '4px solid rgba(255,255,255,0.5)',
+          }}
+        >
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
+            {/* Wheel */}
+            <div className="relative">
+              {/* Pointer */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 -top-12 z-20">
+                <div className="animate-bounce">
+                  <div 
+                    className="w-0 h-0 border-l-[20px] border-r-[20px] border-b-[32px] border-transparent"
+                    style={{ 
+                      borderBottomColor: '#FFD700',
+                      filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.3))',
+                    }}
+                  />
                 </div>
               </div>
-            ) : (
-              <p className="text-sm text-muted-foreground">Pulsa "Iniciar Ruleta" para girar y recibir un reto.</p>
-            )}
+
+              {/* Decorative rings around wheel */}
+              <div className="absolute inset-0 rounded-full animate-spin-slow" style={{
+                background: 'conic-gradient(from 0deg, #FF6B6B, #4ECDC4, #FFE66D, #FF6B6B)',
+                opacity: 0.3,
+                filter: 'blur(20px)',
+                transform: 'scale(1.2)',
+              }} />
+
+              {/* Wheel container */}
+              <div 
+                className="w-[360px] h-[360px] md:w-[420px] md:h-[420px] rounded-full overflow-hidden relative"
+                style={{
+                  boxShadow: '0 0 0 8px rgba(255,215,0,0.5), 0 0 0 16px rgba(255,255,255,0.3), 0 15px 40px rgba(0, 0, 0, 0.4)',
+                  border: '6px solid #FFD700',
+                  animation: spinning ? 'pulse 0.5s infinite' : 'none',
+                }}
+              >
+                <svg
+                  viewBox={`0 0 ${size} ${size}`}
+                  className="w-full h-full block"
+                >
+                  <g>
+                    {slices.map((s, i) => {
+                      const startAngle = i * anglePer;
+                      const endAngle = startAngle + anglePer;
+                      const path = describeArc(cx, cy, radius, startAngle, endAngle);
+                      // position icon roughly at slice center
+                      const midAngle = startAngle + anglePer / 2;
+                      const iconPos = polarToCartesian(cx, cy, radius * 0.6, midAngle);
+                      return (
+                        <g key={s.id}>
+                          <path d={path} fill={s.color} stroke="#111827" strokeWidth={0.5} />
+                          <g transform={`translate(${iconPos.x - 10}, ${iconPos.y - 10})`}>
+                            <rect x={0} y={0} width={40} height={40} rx={8} ry={8} fill="rgba(255,255,255,0.06)" />
+                            <g transform={`translate(10,10)`}>{s.icon}</g>
+                            <text x={20} y={34} fontSize={10} fill="#ffffff" textAnchor="middle"></text>
+                          </g>
+                        </g>
+                      );
+                    })}
+                  </g>
+                </svg>
+
+                {/* center label - clickable bottle */}
+                <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center">
+                  <img
+                    ref={bottleRef}
+                    src="https://rizatoledodistribuciones.es/wp-content/uploads/2024/06/Victoria-Malacati.png"
+                    alt="botella"
+                    onClick={startSpin}
+                    className={`w-64 h-64 md:w-72 md:h-72 object-contain cursor-pointer transition-opacity duration-300 ${spinning ? '' : 'hover:scale-110'}`}
+                    style={{ 
+                      transform: `rotate(${rotation}deg)`,
+                      filter: spinning ? 'brightness(1.2)' : 'none',
+                      transition: spinning ? bottleRef.current?.style.transition : 'transform 0.3s ease',
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Controls and result */}
+            <div className="w-full max-w-md">
+              <div className="text-center mb-6 p-4 rounded-2xl" style={{ background: 'linear-gradient(135deg, #FFE66D 0%, #FF6B6B 100%)' }}>
+                <div 
+                  className="text-xl font-black mb-2"
+                  style={{ 
+                    color: '#333',
+                    textShadow: '0 2px 4px rgba(255,255,255,0.5)',
+                  }}
+                >
+                  🎪 ¡PULSA LA BOTELLA PARA GIRAR! 🎪
+                </div>
+                <p style={{ color: '#555', fontSize: '1rem', fontWeight: '600' }}>
+                  ¡Acepta tu destino! 🍀
+                </p>
+              </div>
+
+              {result ? (
+                <div 
+                  className="p-6 rounded-3xl animate-bounce-in relative overflow-hidden"
+                  style={{
+                    background: 'linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%)',
+                    border: '6px solid #ffc107',
+                    boxShadow: '0 20px 50px rgba(255, 193, 7, 0.4), 0 0 0 4px white',
+                  }}
+                >
+                  {/* Confetti effect */}
+                  <div className="absolute inset-0 opacity-20">
+                    <div className="absolute top-0 left-0 w-4 h-4 bg-red-500 rounded-full animate-ping" />
+                    <div className="absolute top-0 right-0 w-4 h-4 bg-blue-500 rounded-full animate-ping" style={{ animationDelay: '0.2s' }} />
+                    <div className="absolute bottom-0 left-0 w-4 h-4 bg-green-500 rounded-full animate-ping" style={{ animationDelay: '0.4s' }} />
+                    <div className="absolute bottom-0 right-0 w-4 h-4 bg-purple-500 rounded-full animate-ping" style={{ animationDelay: '0.6s' }} />
+                  </div>
+                  
+                  <div className="flex items-center gap-4 relative z-10">
+                    <div 
+                      className="w-20 h-20 flex items-center justify-center rounded-2xl flex-shrink-0 transform rotate-12"
+                      style={{ 
+                        background: result.color,
+                        boxShadow: '0 8px 16px rgba(0,0,0,0.3)',
+                      }}
+                    >
+                      <div style={{ transform: 'scale(2)' }}>{result.icon}</div>
+                    </div>
+                    <div className="text-left">
+                      <div 
+                        className="font-black text-2xl mb-2"
+                        style={{ 
+                          color: '#ff6b35',
+                          textShadow: '2px 2px 4px rgba(0,0,0,0.1)',
+                        }}
+                      >
+                        🎉 ¡TU RETO! 🎉
+                      </div>
+                      <div 
+                        className="text-xl font-bold"
+                        style={{ color: '#333' }}
+                      >
+                        {result.label}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div 
+                  className="p-6 rounded-3xl text-center"
+                  style={{
+                    background: 'linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%)',
+                    border: '3px dashed #999',
+                  }}
+                >
+                  <p style={{ color: '#666', fontSize: '1.1rem', fontWeight: '600' }}>
+                    🎲 Gira la ruleta para descubrir tu destino... 🎲
+                  </p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@ import { UserProfile } from '@/components/UserProfile';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Badge } from '@/components/ui/badge';
+import { HeaderMenu } from '@/components/Header/HeaderMenu';
 
 const Index = () => {
   const { location, loading, error } = useUserLocation();
@@ -61,10 +62,7 @@ const Index = () => {
             Alcanza la Victoria
           </h1>
         </div>
-        
-        <div className="flex items-center gap-2">
-        <a href='/games/card-game'>test</a>
-        </div>
+        <HeaderMenu />
       </header>
 
       {/* Main Content */}
