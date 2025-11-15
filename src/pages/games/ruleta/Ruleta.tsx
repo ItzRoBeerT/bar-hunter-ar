@@ -306,7 +306,7 @@ export const Ruleta: React.FC = () => {
                 <div 
                   className="p-6 rounded-3xl text-center"
                   style={{
-                    background: 'linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%)',
+                    background: 'linear-gradient(135deg, rgb(180, 180, 180) 0%, rgb(140, 140, 140) 100%)',
                     border: '3px dashed #999',
                   }}
                 >
