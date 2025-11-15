@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -95,7 +96,15 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Montserrat', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 700;
+    color: #FFA500;
+  }
+
+  /* Force all textual content to orange. This overrides utility classes like `text-destructive`.
+     If you later want exceptions (e.g., gradient headings), remove or narrow this rule. */
+  body * {
+    color: #FFA500 !important;
   }
 }
 
