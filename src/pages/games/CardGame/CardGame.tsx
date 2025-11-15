@@ -110,7 +110,7 @@ const CardGame: React.FC = () => {
               placeholder="Nombre del jugador"
               maxLength={20}
             />
-            <button onClick={addPlayer}>Agregar</button>
+            <button onClick={addPlayer} style={{ color: '#D73719' }}>Agregar</button>
           </div>
 
           <div className="players-list">

@@ -417,6 +417,7 @@
 
 	.add-player-form input {
 		min-width: 100%;
+		color: #333 !important;
 	}
 
 	.add-player-form button {
