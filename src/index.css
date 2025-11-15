@@ -106,6 +106,28 @@ All colors MUST be HSL.
 		color: #ffffff !important;
 	}
 
+	/* Excepciones para el juego de cartas donde necesitamos controlar los colores */
+	.card-game-container input,
+	.card-game-container input::placeholder,
+	.card-game-container .player-name,
+	.card-game-container .result-section h2,
+	.card-game-container .result-section p,
+	.card-game-container .drinks-count {
+		color: inherit !important;
+	}
+
+	/* Excepciones para los inputs y labels en general para mejor legibilidad */
+	input,
+	textarea,
+	label {
+		color: #ffffff !important;
+	}
+
+	input::placeholder,
+	textarea::placeholder {
+		color: rgba(255, 255, 255, 0.5) !important;
+	}
+
 	/* Make the main header (the element with class bg-card) have a white background
      while keeping existing borders and shadows. Uses !important to override utilities. */
 	header.bg-card {
@@ -267,5 +289,11 @@ All colors MUST be HSL.
 
 	.animate-slide-down {
 		animation: slide-down 0.2s ease-out;
+	}
+
+	@keyframes spin {
+		to {
+			transform: rotate(360deg);
+		}
 	}
 }
