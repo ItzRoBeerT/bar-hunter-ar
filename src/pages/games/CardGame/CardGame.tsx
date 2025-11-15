@@ -95,7 +95,7 @@ const CardGame: React.FC = () => {
   };
 
   return (
-    <div className="card-game-container">
+    <div className="card-game-container"style={{ color: '#D73719' }}>
       <h1>🍺 Juego de Cartas - Bebidas 🍺</h1>
 
       {gameState === "setup" && (
