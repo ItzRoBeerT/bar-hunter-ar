@@ -12,6 +12,10 @@ import { HigherLower } from './pages/HigherLower';
 import Contacto from './pages/Contacto';
 import DinosTuJuego from './pages/DinosTuJuego';
 
+<header className="navbar">
+  <div className="logo" style={{ backgroundImage: "url('hombre-sujetando-cerveza-pinta-replica.png')" }}></div>
+</header>
+
 const queryClient = new QueryClient();
 
 const App = () => (

@@ -160,8 +160,13 @@ export const MapView = ({ userLocation, onCenterUser }: MapViewProps) => {
         >
           <div className="relative animate-bounce-subtle">
             <div className="absolute inset-0 bg-primary rounded-full blur-lg opacity-60" />
-            <div className="relative bg-primary text-primary-foreground rounded-full p-3 shadow-lg border-4 border-background">
+            <div >
               <User className="w-6 h-6" />
+              <img
+                  src="/vector-ilustracion-corriente-hombre-blanco-sobre-azul.png"
+                  alt=" "
+                  style={{ width: '24px', height: '24px', borderRadius: '50%' }}
+              />
             </div>
           </div>
         </Marker>
@@ -179,8 +184,18 @@ export const MapView = ({ userLocation, onCenterUser }: MapViewProps) => {
               className="relative group cursor-pointer transition-transform hover:scale-110 game-button"
             >
               <div className="absolute -inset-2 bg-secondary rounded-full blur-md opacity-40 group-hover:opacity-70 transition-opacity" />
-              <div className="relative bg-secondary text-secondary-foreground rounded-full p-2 shadow-lg border-2 border-background">
-                <MapPin className="w-6 h-6" fill="currentColor" />
+              <div >
+                <img
+                    src="/taza-cerveza-espuma-fondo-ladrillo-ilustracion-estilo-neon-pub-bar-oktoberfest.png"
+                    alt="Icono personalizado"
+                    style={{
+                      width: '40px',
+                      height: '40px',
+                      borderRadius: '50%',
+                      display: 'block',
+                      margin: '0 auto',
+                    }}
+                />
               </div>
             </button>
           </Marker>

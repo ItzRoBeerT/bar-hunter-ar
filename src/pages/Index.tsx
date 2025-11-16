@@ -9,7 +9,9 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Badge } from '@/components/ui/badge';
 import { HeaderMenu } from '@/components/Header/HeaderMenu';
-
+<header className="navbar">
+  <div className="logo" style={{ backgroundImage: "url('hombre-sujetando-cerveza-pinta-replica.png')" }}></div>
+</header>
 const Index = () => {
   const { location, loading, error } = useUserLocation();
   const { profile } = useGameStore();
