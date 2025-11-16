@@ -104,7 +104,7 @@ All colors MUST be HSL.
 
 	/* Force all textual content to white. */
 	body * {
-		color: #ffffff !important;
+		color: #ffffff;
 	}
 
 	/* Excepciones para el juego de cartas donde necesitamos controlar los colores */
@@ -114,7 +114,7 @@ All colors MUST be HSL.
 	.card-game-container .result-section h2,
 	.card-game-container .result-section p,
 	.card-game-container .drinks-count {
-		color: inherit !important;
+		color: inherit;
 	}
 
 	/* Excepciones para los inputs y labels en general para mejor legibilidad */

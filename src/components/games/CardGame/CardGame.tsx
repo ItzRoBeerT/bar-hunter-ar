@@ -160,11 +160,19 @@ const CardGame: React.FC = () => {
 
 	return (
 		<div className="card-game-container">
-			<h1>🍺 Juego de Cartas 🍺</h1>
-			<p style={{ color: 'black' }}>Gana el número más bajo</p>
+			<h1
+				className="text-6xl font-extrabold mb-4 animate-bounce"
+				style={{
+					color: '#000000',
+					textShadow: '0 4px 8px rgba(0,0,0,0.1), 0 0 20px rgba(0,0,0,0.1)',
+				}}
+			>
+			🍺 Juego de Cartas 🍺
+			</h1>
+			<p style={{ color: 'black' }} className='mb-4'>Gana el número más bajo</p>
 			{gameState === 'setup' && (
 				<div className="setup-section">
-					<h2>Agregar Jugadores</h2>
+					<h2 className='text-black'>Agregar Jugadores</h2>
 					<div className="add-player-form">
 						<input
 							type="text"

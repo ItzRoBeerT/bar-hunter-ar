@@ -4,7 +4,7 @@
 	padding: 1.5rem;
 	text-align: center;
 	min-height: 100vh;
-	background: #D73719;
+	background: #ffffff; /* Cambiado a blanco */
 }
 
 .card-game-container h1 {
@@ -32,7 +32,7 @@
 	border-radius: 24px;
 	padding: 2rem;
 	margin-bottom: 2rem;
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 10px 30px rgba(215, 55, 25, 0.2), 0 4px 10px rgba(0, 0, 0, 0.1);
 	animation: fadeInUp 0.6s ease-out;
 }
 
@@ -75,7 +75,8 @@
 }
 
 .add-player-form input::placeholder {
-	color: #838282; /* Add placeholder color */
+	color: #666 !important;
+	opacity: 1;
 }
 
 .add-player-form input:focus {
