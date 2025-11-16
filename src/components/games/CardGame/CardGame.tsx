@@ -161,11 +161,15 @@ const CardGame: React.FC = () => {
 	return (
 		<div className="card-game-container">
 			<h1
-				className="text-6xl font-extrabold mb-4 animate-bounce"
 				style={{
 					color: '#000000',
 					textShadow: '0 4px 8px rgba(0,0,0,0.1), 0 0 20px rgba(0,0,0,0.1)',
+					animation: 'bounce 1s ease-in-out infinite',
+					fontSize: '3rem',
+					fontWeight: '800',
+					marginBottom: '1rem',
 				}}
+				className='mt-2'
 			>
 			🍺 Juego de Cartas 🍺
 			</h1>
