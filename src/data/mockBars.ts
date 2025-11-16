@@ -8,7 +8,7 @@ export interface Bar {
   rating: number;
   type: 'bar' | 'restaurante' | 'café';
   joke?: string;
-  gameType?: 'flip-card' | 'spin-bottle' | 'higher-lower';
+  gameType?: 'flip-card' | 'spin-bottle' | 'higher-lower' | 'truth-dare';
 }
 
 export const mockBars: Bar[] = [
@@ -105,7 +105,8 @@ export const mockBars: Bar[] = [
     description: 'Australian-style brunch spot. Great coffee and healthy options.',
     imageUrl: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=600&fit=crop',
     rating: 4.5,
-    type: 'café'
+    type: 'café',
+    gameType: 'truth-dare'
   ,
   joke: 'Mi médico me dijo que beba más agua; voy al bar y pido una cerveza. ¡Salud!'
   },

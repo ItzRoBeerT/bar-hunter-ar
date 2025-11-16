@@ -11,6 +11,7 @@ import CardGamePage from './pages/games/CardGame';
 import { HigherLower } from './pages/HigherLower';
 import Contacto from './pages/Contacto';
 import DinosTuJuego from './pages/DinosTuJuego';
+import TruthDare from './pages/TruthDare';
 
 <header className="navbar">
   <div className="logo" style={{ backgroundImage: "url('hombre-sujetando-cerveza-pinta-replica.png')" }}></div>
@@ -30,6 +31,7 @@ const App = () => (
 					<Route path="/games/ruleta" element={<Ruleta />} />
 					<Route path="/games/card-game" element={<CardGamePage />} />
 					<Route path="/games/higher-lower" element={<HigherLower />} />
+					<Route path="/games/truth-dare" element={<TruthDare />} />
 					<Route path="*" element={<NotFound />} />
 					<Route path="/contacto" element={<Contacto />} />
 					<Route path="/sugerir-juego" element={<DinosTuJuego />} />

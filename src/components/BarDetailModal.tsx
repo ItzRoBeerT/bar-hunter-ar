@@ -253,8 +253,17 @@ export const BarDetailModal = ({ bar, userLocation, onClose }: BarDetailModalPro
               >
                 Jugar
               </Button>
-            )
-            }
+            )}
+            {
+              bar.gameType === 'truth-dare' && (
+              <Button
+                onClick={() => navigate(`games/truth-dare`)}
+                className="flex-1"
+                variant="default"
+              >
+                Jugar
+              </Button>
+            )}
 					</div>
 				</div>
 			</div>
