@@ -232,6 +232,11 @@ All colors MUST be HSL.
   }
 }
 
+[role="dialog"] {
+  background-color: White;
+}
+
+
 @layer utilities {
 	.game-card {
 		@apply bg-card border border-border rounded-xl shadow-lg;
