@@ -103,10 +103,11 @@ All colors MUST be HSL.
 	}
 
 	/* Force all textual content to white. */
+	/* 
 	body * {
 		color: #ffffff;
 	}
-
+	*/
 	/* Excepciones para el juego de cartas donde necesitamos controlar los colores */
 	.card-game-container input,
 	.card-game-container input::placeholder,
@@ -121,49 +122,49 @@ All colors MUST be HSL.
 	input,
 	textarea,
 	label {
-		color: #ffffff !important;
+		color: #ffffff ;
 	}
 
 	input::placeholder,
 	textarea::placeholder {
-		color: rgba(255, 255, 255, 0.5) !important;
+		color: rgba(255, 255, 255, 0.5) ;
 	}
 
 	/* Make the main header (the element with class bg-card) have a white background
-     while keeping existing borders and shadows. Uses !important to override utilities. */
+     while keeping existing borders and shadows. Uses  to override utilities. */
 	header.bg-card {
-		background-color: #d73719 !important;
-		border-color: #b02b13 !important;
+		background-color: #d73719 ;
+		border-color: #b02b13 ;
 	}
 
 	/* Ensure `bg-clip-text` elements render white text by default (user requested white letters).
      If you want gradient text instead for specific headings, override locally. */
 	.bg-clip-text {
-		color: #ffffff !important;
-		-webkit-background-clip: initial !important;
-		background-clip: initial !important;
+		color: #ffffff;
+		-webkit-background-clip: initial ;
+		background-clip: initial ;
 	}
 
 	/* Ensure the header title is white (contrasts with the new header background). */
 	header.bg-card h1.bg-clip-text {
-		background-image: none !important;
-		-webkit-background-clip: initial !important;
-		background-clip: initial !important;
-		color: #ffffff !important;
+		background-image: none ;
+		-webkit-background-clip: initial ;
+		background-clip: initial ;
+		color: #ffffff ;
 	}
 
 	/* Specific style for the small level badge in the header: make it lighter orange with white text */
 	.level-badge {
-		background-color: #e85d3f !important;
-		color: #ffffff !important;
-		border-color: #d44d2f !important;
+		background-color: #e85d3f ;
+		color: #ffffff ;
+		border-color: #d44d2f ;
 	}
 
 	/* Specific style for the points badge: same orange color as level badge */
 	.points-badge {
-		background-color: #e85d3f !important;
-		color: #ffffff !important;
-		border-color: #d44d2f !important;
+		background-color: #e85d3f ;
+		color: #ffffff ;
+		border-color: #d44d2f ;
 	}
 
 	/* Make the bouncing user control fully white and set its icon color to the
@@ -174,13 +175,13 @@ All colors MUST be HSL.
      </div>
   */
 	.relative.animate-bounce-subtle > .absolute.inset-0.bg-primary {
-		background-color: #ffffff !important;
+		background-color: #ffffff ;
 	}
 
 	.relative.animate-bounce-subtle > .relative.bg-primary {
-		background-color: #ffffff !important;
-		color: #d73719 !important; /* svg uses currentColor for stroke/fill */
-		border-color: #e6e6e6 !important;
+		background-color: #ffffff ;
+		color: #d73719 ; /* svg uses currentColor for stroke/fill */
+		border-color: #e6e6e6 ;
 	}
 
 
@@ -190,16 +191,16 @@ All colors MUST be HSL.
 	.mapboxgl-ctrl-icon,
 	.mapboxgl-ctrl-icon svg,
 	.mapboxgl-ctrl-icon * {
-		color: #ffffff !important;
-		fill: #ffffff !important;
-		stroke: #ffffff !important;
-		background-color: transparent !important;
+		color: #ffffff ;
+		fill: #ffffff ;
+		stroke: #ffffff ;
+		background-color: transparent ;
 	}
 
 	/* Make the decorative overlay inside `.game-button` white while keeping its
      blur and opacity behavior. Targets the absolute overlay div used in map pin buttons. */
 	.game-button > .absolute.-inset-2.bg-secondary {
-		background-color: #d73719 !important;
+		background-color: #d73719 ;
 	}
 
   .p-6.space-y-4 {
@@ -214,20 +215,20 @@ All colors MUST be HSL.
      (they have the `game-button` class). This keeps special buttons' styles intact. */
 	button:not(.game-button),
 	[role='button']:not(.game-button) {
-		background-color: #d73719 !important;
-		color: #ffffff !important;
-		border-color: #b02b13 !important;
+		background-color: #d73719 ;
+		color: #ffffff ;
+		border-color: #b02b13 ;
 	}
   
   /* Style the dialog/modal with a darker tone than #D73719 */
   [role="dialog"] {
-    background-color: #B5290E!important;
+    background-color: #B5290E;
   }
   
   /* Style game buttons inside the dialog with #D73719 */
   [role="dialog"] .game-button {
-    background-color: #D73719 !important;
-    border-color: #8a1f08 !important;
+    background-color: #D73719 ;
+    border-color: #8a1f08 ;
   }
 }
 

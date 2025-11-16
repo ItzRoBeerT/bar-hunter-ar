@@ -71,11 +71,11 @@
 	transition: all 0.3s ease;
 	background: #f8f9fa;
 	font-weight: 500;
-	color: #333 !important; /* Add text color */
+	color: #333 ; /* Add text color */
 }
 
 .add-player-form input::placeholder {
-	color: #666 !important;
+	color: #666 ;
 	opacity: 1;
 }
 
@@ -85,7 +85,7 @@
 	box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
 	background: white;
 	transform: translateY(-2px);
-	color: #333 !important; /* Ensure text color on focus */
+	color: #333 ; /* Ensure text color on focus */
 }
 
 .add-player-form button {
@@ -418,7 +418,7 @@
 
 	.add-player-form input {
 		min-width: 100%;
-		color: #333 !important;
+		color: #333 ;
 	}
 
 	.add-player-form button {
