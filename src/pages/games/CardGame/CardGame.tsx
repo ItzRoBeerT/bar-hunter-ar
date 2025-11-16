@@ -96,8 +96,15 @@ const CardGame: React.FC = () => {
 
   return (
     <div className="card-game-container"style={{ color: '#D73719' }}>
-      <h1>🍺 Juego de Cartas - Bebidas 🍺</h1>
-
+      <h1
+        className="text-6xl font-extrabold mb-4 animate-bounce"
+        style={{
+          color: '#D73719',
+          textShadow: '0 4px 8px rgba(0,0,0,0.3), 0 0 20px rgba(215,55,25,0.5)',
+        }}
+      >
+        🍺 Juego de Cartas - Bebidas 🍺
+      </h1>
       {gameState === "setup" && (
         <div className="setup-section">
           <h2>Agregar Jugadores</h2>
