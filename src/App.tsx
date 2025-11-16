@@ -12,6 +12,7 @@ import { HigherLower } from './pages/HigherLower';
 import Contacto from './pages/Contacto';
 import DinosTuJuego from './pages/DinosTuJuego';
 import TruthDare from './pages/TruthDare';
+import CharlaConPaco from './pages/CharlaConPaco';
 
 <header className="navbar">
   <div className="logo" style={{ backgroundImage: "url('hombre-sujetando-cerveza-pinta-replica.png')" }}></div>
@@ -34,6 +35,7 @@ const App = () => (
 					<Route path="/games/truth-dare" element={<TruthDare />} />
 					<Route path="*" element={<NotFound />} />
 					<Route path="/contacto" element={<Contacto />} />
+					<Route path="/charla-con-paco" element={<CharlaConPaco />} />
 					<Route path="/sugerir-juego" element={<DinosTuJuego />} />
 				</Routes>
 			</BrowserRouter>

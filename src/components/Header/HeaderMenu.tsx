@@ -52,6 +52,13 @@ export const HeaderMenu: React.FC = () => {
               Contacto
             </a>
             <a
+              href="/charla-con-paco"
+              className="block px-4 py-3 text-white font-semibold transition-all duration-200 hover:bg-white/20"
+              onClick={() => setIsOpen(false)}
+            >
+              Charla con Paco
+            </a>
+            <a
               href="/sugerir-juego"
               className="block px-4 py-3 text-white font-semibold transition-all duration-200 hover:bg-white/20"
               onClick={() => setIsOpen(false)}
