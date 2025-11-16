@@ -201,6 +201,14 @@ All colors MUST be HSL.
 		background-color: #d73719 !important;
 	}
 
+  .p-6 {
+    color: #B5290E;
+  }
+
+  .flex-col {
+    color: #D73719
+  }
+
 	/* Make buttons white by default, but exclude buttons used as game controls
      (they have the `game-button` class). This keeps special buttons' styles intact. */
 	button:not(.game-button),

@@ -75,7 +75,7 @@
 }
 
 .add-player-form input::placeholder {
-	color: #999; /* Add placeholder color */
+	color: #838282; /* Add placeholder color */
 }
 
 .add-player-form input:focus {

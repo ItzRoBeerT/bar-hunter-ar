@@ -45,7 +45,7 @@ const Index = () => {
             {error || 'Unable to get your location. Please enable location services.'}
           </p>
           <p className="text-sm text-muted-foreground">
-            Using default location: Madrid, Spain
+            Using default location: Barcelona, Spain
           </p>
         </div>
       </div>
