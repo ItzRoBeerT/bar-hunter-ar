@@ -64,7 +64,7 @@ const TruthDare = () => {
 		// Play animation sound
 		if (animationAudioRef.current) {
 			animationAudioRef.current.currentTime = 0;
-			animationAudioRef.current.play().catch((error) => console.error('Error playing animation sound:', error));
+			animationAudioRef.current.play().catch((error) => console.error('Error al reproducir audio:', error));
 		}
 
 		// Pre-select the final result
@@ -105,7 +105,7 @@ const TruthDare = () => {
 						resultAudioRef.current.currentTime = 0;
 						resultAudioRef.current
 							.play()
-							.catch((error) => console.error('Error playing result sound:', error));
+							.catch((error) => console.error('Error al reproducir audio de resultado:', error));
 					}
 				}, 250);
 			}
@@ -140,7 +140,7 @@ const TruthDare = () => {
 	return (
 		<div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
 			{/* Hidden audio elements */}
-			<audio ref={animationAudioRef} src="/sounds/clown.mp3" preload="auto" loop />
+			<audio ref={animationAudioRef} src="/sounds/circus-music.mp3" preload="auto" loop />
 			<audio ref={resultAudioRef} src="/sounds/cerveza_bote.mp3" preload="auto" />
 
 			{/* Header */}
