@@ -25,8 +25,12 @@ export default {
           'Noto Sans',
           'sans-serif',
         ],
-      },
+      }
+      ,
       colors: {
+        customRed: '#B32E13',
+        customRed2: '#8F260F',
+        customRed3: '#A22A11',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -114,3 +118,5 @@ export default {
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+
+

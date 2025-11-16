@@ -27,9 +27,9 @@ export const NearbyBarsList = ({ userLocation, onBarClick }: NearbyBarsListProps
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'bar': return 'bg-secondary/20 text-secondary border-secondary/30';
-      case 'restaurant': return 'bg-primary/20 text-primary border-primary/30';
-      case 'café': return 'bg-accent/20 text-accent border-accent/30';
+      case 'bar': return 'bg-secondary/20 text-customRed border-secondary/30';
+      case 'restaurante': return 'bg-primary/20 text-customRed3 border-primary/30';
+      case 'café': return 'bg-accent/20 text-customRed2 border-accent/30';
       default: return 'bg-muted/20 text-muted-foreground border-muted/30';
     }
   };

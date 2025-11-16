@@ -82,12 +82,12 @@ export const BarDetailModal = ({ bar, userLocation, onClose }: BarDetailModalPro
 
 	const getTypeColor = (type: string) => {
 		switch (type) {
-			case 'bar':
-				return 'bg-yellow-500 text-black font-semibold';
-			case 'restaurant':
-				return 'bg-primary text-primary-foreground';
-			case 'café':
-				return 'bg-accent text-accent-foreground';
+			case 'Bar':
+				return 'bg-yellow-500 text-customRed font-semibold';
+			case 'Restaurante':
+				return 'bg-primary text-customRed3';
+			case 'Café':
+				return 'bg-accent text-customRed2';
 			default:
 				return 'bg-muted text-muted-foreground';
 		}
