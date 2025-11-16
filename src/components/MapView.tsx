@@ -162,11 +162,6 @@ export const MapView = ({ userLocation, onCenterUser }: MapViewProps) => {
             <div className="absolute inset-0 bg-primary rounded-full blur-lg opacity-60" />
             <div >
               <User className="w-6 h-6" />
-              <img
-                  src="/vector-ilustracion-corriente-hombre-blanco-sobre-azul.png"
-                  alt=" "
-                  style={{ width: '24px', height: '24px', borderRadius: '50%' }}
-              />
             </div>
           </div>
         </Marker>
