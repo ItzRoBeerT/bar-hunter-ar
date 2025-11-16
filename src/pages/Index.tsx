@@ -58,7 +58,11 @@ const Index = () => {
       <header className="bg-card border-b border-border px-4 py-3 flex items-center justify-between z-10 shadow-lg">
         <div className="logo" style={{ backgroundImage: "url('hombre-sujetando-cerveza-pinta-replica.png')" }}></div>
         <div className="flex items-center gap-3">
-          <div className="text-2xl">🍺</div>
+          <img
+            src="/hombre-sujetando-cerveza-pinta-replica.png"
+            alt="Hombre sujetando una cerveza"
+            className="w-10 h-10 object-contain rounded-md"
+          />
           <h1 className="text-xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
             Alcanza la Victoria
           </h1>
