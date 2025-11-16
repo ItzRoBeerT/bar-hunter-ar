@@ -146,7 +146,7 @@ export const BarDetailModal = ({ bar, userLocation, onClose }: BarDetailModalPro
 				</button>
 
 				{/* Image */}
-				<div className="relative h-48 sm:h-56 overflow-hidden">
+				<div className="relative h-48 sm:h-56 overflow-hidden"style={{backgroundColor:'#B5290E'}}>
 					<img src={bar.imageUrl} alt={bar.name} className="w-full h-full object-cover" />
 					<div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
 
@@ -157,7 +157,7 @@ export const BarDetailModal = ({ bar, userLocation, onClose }: BarDetailModalPro
 				</div>
 
 				{/* Content */}
-				<div className="p-6 space-y-4">
+				<div className="p-6 space-y-4" style={{backgroundColor:'#B5290E'}}>
 					{/* Title */}
 					<div>
 						<h2 className="text-2xl font-bold mb-2">{bar.name}</h2>
