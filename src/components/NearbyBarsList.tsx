@@ -36,7 +36,7 @@ export const NearbyBarsList = ({ userLocation, onBarClick }: NearbyBarsListProps
 
   return (
     <div className="space-y-3">
-      <h3 className="text-lg font-semibold px-1">Nearby Places</h3>
+      <h3 className="text-lg font-semibold px-1">Establecimientos cercanos</h3>
       <div className="space-y-2">
         {sortedBars.map(bar => (
           <button
