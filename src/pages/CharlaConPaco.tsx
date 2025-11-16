@@ -1,6 +1,6 @@
 import { ArrowLeft } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 type Message = {
   id: number;
@@ -132,7 +132,7 @@ const CharlaConPaco: React.FC = () => {
               <div>
                 <h2 className="text-lg font-bold">Paco</h2>
                 <p className="text-blue-100 text-sm">
-                  Tu asistente personal para encontrar bares
+                  Tu asistente personal para una noche de fiesta.
                 </p>
               </div>
               <div className="ml-auto">
@@ -233,19 +233,10 @@ const CharlaConPaco: React.FC = () => {
                         sendMessage();
                       }
                     }}
-                    className="w-full px-4 py-3 pr-12 border-2 border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
+                    className="w-full px-4 py-3 pr-12 border-2 border-gray-200 text-gray-800/80 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
                     placeholder="Pregunta sobre bares, ambiente, ubicación..."
                     disabled={isTyping}
                   />
-                  {input && (
-                    <button
-                      type="button"
-                      onClick={() => setInput("")}
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
-                    >
-                      ✕
-                    </button>
-                  )}
                 </div>
                 <button
                   type="button"
