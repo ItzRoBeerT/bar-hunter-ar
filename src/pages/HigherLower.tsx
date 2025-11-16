@@ -293,7 +293,7 @@ export const HigherLower: React.FC<HigherLowerProps> = ({ onGameEnd }) => {
   // ============================================================================
 
   return (
-    <div className="flex flex-col items-center justify-between min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white p-4">
+    <div className="min-h-screen p-4" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
       <style>{`
         @keyframes slideIn {
           from {
@@ -361,15 +361,15 @@ export const HigherLower: React.FC<HigherLowerProps> = ({ onGameEnd }) => {
         }
         
         .card-fallback {
-          color: #60a5fa;
+          color: #d73719;
           font-size: 0.875rem;
           font-weight: bold;
           padding: 8px;
           text-align: center;
           word-break: break-word;
           line-height: 1.2;
-          background: linear-gradient(135deg, #374151, #4b5563);
-          border: 2px solid #6b7280;
+          background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+          border: 2px solid #d73719;
           border-radius: 12px;
           width: 100%;
           height: 100%;
@@ -379,110 +379,305 @@ export const HigherLower: React.FC<HigherLowerProps> = ({ onGameEnd }) => {
         }
       `}</style>
 
-      <div className="w-full max-w-lg">
-        <h1 className="text-4xl font-extrabold mb-8 text-yellow-400 text-center">
-          🍻 Alto o Bajo 🍻
-        </h1>
+      <div className="max-w-6xl mx-auto">
+        {/* Title section */}
+        <div className="text-center mb-8">
+          <h1 
+            className="text-6xl font-extrabold mb-4 animate-bounce"
+            style={{ 
+              color: 'white',
+              textShadow: '0 4px 8px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.5)',
+            }}
+          >
+            🍻 Alto o Bajo 🍻
+          </h1>
+          <p style={{ color: 'rgba(255,255,255,0.9)', marginTop: '0.5rem', fontSize: '1.2rem' }}>
+            ¡Adivina si la siguiente carta es más alta o más baja! 🃏
+          </p>
+        </div>
 
-        {gameState === "gameOver" ? (
-          <div className="text-center bg-gray-800/90 rounded-xl p-8 border border-gray-700">
-            <h2 className="text-2xl font-bold mb-6 text-yellow-400">
-              ¡Juego Terminado!
-            </h2>
-            <p className="text-xl mb-8 text-gray-200">{lastOutcomeMessage}</p>
-            <button
-              type="button"
-              onClick={startNewGame}
-              className="bg-green-600 hover:bg-green-700 text-white inline-flex items-center px-6 py-3 rounded-lg font-medium transition-colors shadow-lg hover:shadow-xl"
-            >
-              <RefreshCcw className="mr-2" size={20} /> Jugar de Nuevo
-            </button>
-          </div>
-        ) : (
-          <>
-          <p className="text-gray-300 pb-8 text-center">Elige si la siguiente carta es más alta o más baja que la actual</p>
-            
-            <div className="mb-8 text-center bg-gray-800/90 rounded-xl p-6 border border-gray-700">
-              
-              <p className="text-gray-300 mb-2">Cartas restantes:</p>
-              <p className="font-bold text-2xl text-yellow-300">{deck.length}</p>
-            </div>
-
-            <div className="mb-8 flex justify-center items-center gap-6">
-              <div className="relative w-32 h-44">
-                <div className="w-full h-full bg-gradient-to-b from-gray-700 to-gray-800 rounded-xl shadow-2xl flex items-center justify-center border-2 border-gray-600 overflow-hidden">
-                  <CardImage card={currentCard} />
+        {/* Main game area */}
+        <div 
+          className="rounded-3xl shadow-2xl p-8"
+          style={{
+            background: 'white',
+            boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 8px rgba(255,255,255,0.3)',
+            border: '4px solid rgba(255,255,255,0.5)',
+          }}
+        >
+          <div className="flex flex-col items-center justify-center gap-8">
+            {gameState === "gameOver" ? (
+              <div 
+                className="text-center p-8 rounded-3xl"
+                style={{
+                  background: 'linear-gradient(135deg, #FFE66D 0%, #FF6B6B 100%)',
+                  border: '6px solid #d73719',
+                  boxShadow: '0 20px 50px rgba(215, 55, 25, 0.4), 0 0 0 4px white',
+                }}
+              >
+                <div className="absolute inset-0 opacity-20">
+                  <div className="absolute top-2 left-2 w-4 h-4 bg-yellow-400 rounded-full animate-ping" />
+                  <div className="absolute top-2 right-2 w-4 h-4 bg-pink-400 rounded-full animate-ping" style={{ animationDelay: '0.2s' }} />
+                  <div className="absolute bottom-2 left-2 w-4 h-4 bg-green-400 rounded-full animate-ping" style={{ animationDelay: '0.4s' }} />
+                  <div className="absolute bottom-2 right-2 w-4 h-4 bg-purple-400 rounded-full animate-ping" style={{ animationDelay: '0.6s' }} />
                 </div>
-                <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-gray-700 px-3 py-1 rounded-full text-xs font-medium text-gray-300">
-                  Actual
+
+                <div className="relative z-10">
+                  <h2 
+                    className="font-black text-4xl mb-4"
+                    style={{ 
+                      color: '#d73719',
+                      textShadow: '2px 2px 4px rgba(0,0,0,0.1)',
+                    }}
+                  >
+                    ¡JUEGO TERMINADO! 🎉
+                  </h2>
+                  <p className="text-xl font-bold mb-6" style={{ color: '#333' }}>
+                    {lastOutcomeMessage}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={startNewGame}
+                    style={{
+                      background: 'linear-gradient(135deg, #d73719 0%, #b02b13 100%)',
+                      color: 'white',
+                      padding: '16px 32px',
+                      borderRadius: '16px',
+                      fontSize: '18px',
+                      fontWeight: 'bold',
+                      border: 'none',
+                      cursor: 'pointer',
+                      boxShadow: '0 8px 16px rgba(215, 55, 25, 0.4)',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      transition: 'all 0.3s ease',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'scale(1.05)';
+                      e.currentTarget.style.boxShadow = '0 12px 24px rgba(215, 55, 25, 0.5)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'scale(1)';
+                      e.currentTarget.style.boxShadow = '0 8px 16px rgba(215, 55, 25, 0.4)';
+                    }}
+                  >
+                    <RefreshCcw size={20} /> Jugar de Nuevo
+                  </button>
                 </div>
               </div>
+            ) : (
+              <>
+                <p style={{ color: '#666', fontSize: '1.2rem', textAlign: 'center', marginBottom: '20px' }}>
+                  Elige si la siguiente carta es más alta o más baja que la actual
+                </p>
+                  
+                <div 
+                  className="text-center p-6 rounded-2xl mb-8"
+                  style={{ 
+                    background: 'linear-gradient(135deg, #B5290E 0%, #8a1f08 100%)',
+                    border: '3px solid #d73719'
+                  }}
+                >
+                  <p className="text-white mb-2 text-lg font-semibold">Cartas restantes:</p>
+                  <p className="font-bold text-3xl" style={{ color: '#FFD700' }}>{deck.length}</p>
+                </div>
 
-              <div className="text-2xl font-bold text-yellow-400">VS</div>
-
-              <div className="relative">
-                <div className={`card-flip ${isFlipping ? "flipping" : ""}`}>
-                  <div className="card-flip-inner">
-                    <div className="card-face">
-                      <CardImage card={nextCard} />
+                <div className="mb-8 mx-4 flex justify-center items-center gap-4">
+                  <div className="relative w-32 h-44">
+                    <div 
+                      className="w-full h-full rounded-xl shadow-2xl flex items-center justify-center border-4 overflow-hidden"
+                      style={{ 
+                        background: 'linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%)',
+                        borderColor: '#d73719'
+                      }}
+                    >
+                      <CardImage card={currentCard} />
                     </div>
-                    <div className="card-face card-back">
-                      <CardImage card={null} isBackVisible />
+                    <div 
+                      className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 px-3 py-1 rounded-full text-xs font-bold text-white"
+                      style={{ background: '#d73719' }}
+                    >
+                      Actual
+                    </div>
+                  </div>
+
+                  <div 
+                    className="text-4xl font-black px-4 py-2 rounded-full"
+                    style={{ 
+                      color: '#d73719',
+                      textShadow: '2px 2px 4px rgba(0,0,0,0.1)',
+                    }}
+                  >
+                    VS
+                  </div>
+
+                  <div className="relative">
+                    <div className={`card-flip ${isFlipping ? "flipping" : ""}`}>
+                      <div className="card-flip-inner">
+                        <div className="card-face">
+                          <div 
+                            className="w-full h-full rounded-xl shadow-2xl flex items-center justify-center border-4 overflow-hidden"
+                            style={{ 
+                              background: 'linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%)',
+                              borderColor: '#d73719'
+                            }}
+                          >
+                            <CardImage card={nextCard} />
+                          </div>
+                        </div>
+                        <div className="card-face card-back">
+                          <div 
+                            className="w-full h-full rounded-xl shadow-2xl flex items-center justify-center border-4 overflow-hidden"
+                            style={{ 
+                              background: 'linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%)',
+                              borderColor: '#d73719'
+                            }}
+                          >
+                            <CardImage card={null} isBackVisible />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div 
+                      className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 px-3 py-1 rounded-full text-xs font-bold text-white"
+                      style={{ background: '#d73719' }}
+                    >
+                      {gameState === "waitingForBet" ? "Siguiente" : "Resultado"}
                     </div>
                   </div>
                 </div>
-                <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-gray-700 px-3 py-1 rounded-full text-xs font-medium text-gray-300">
-                  {gameState === "waitingForBet" ? "Siguiente" : "Resultado"}
-                </div>
-              </div>
+
+                {gameState === "showingResult" && (
+                  <div 
+                    className="mb-6 p-6 rounded-xl text-center"
+                    style={{
+                      background: 'linear-gradient(135deg, #FFE66D 0%, #FF6B6B 100%)',
+                      border: '3px solid #d73719',
+                    }}
+                  >
+                    <p 
+                      className="text-xl font-bold"
+                      style={{ 
+                        color: '#333',
+                        textShadow: '1px 1px 2px rgba(255,255,255,0.5)',
+                      }}
+                    >
+                      {lastOutcomeMessage}
+                    </p>
+                  </div>
+                )}
+
+                {gameState === "waitingForBet" && !isFlipping && (
+                  <div className="flex gap-6 mb-8 justify-center flex-wrap">
+                    <button
+                      type="button"
+                      onClick={() => handleBet("higher")}
+                      style={{
+                        background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+                        color: 'white',
+                        fontSize: '18px',
+                        padding: '16px 32px',
+                        borderRadius: '16px',
+                        fontWeight: 'bold',
+                        border: 'none',
+                        cursor: 'pointer',
+                        boxShadow: '0 8px 16px rgba(16, 185, 129, 0.4)',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '12px',
+                        transition: 'all 0.3s ease',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'scale(1.05) translateY(-2px)';
+                        e.currentTarget.style.boxShadow = '0 12px 24px rgba(16, 185, 129, 0.5)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'scale(1) translateY(0)';
+                        e.currentTarget.style.boxShadow = '0 8px 16px rgba(16, 185, 129, 0.4)';
+                      }}
+                    >
+                      <ArrowUp size={24} /> ¡Más Alta!
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleBet("lower")}
+                      style={{
+                        background: 'linear-gradient(135deg, #EF4444 0%, #DC2626 100%)',
+                        color: 'white',
+                        fontSize: '18px',
+                        padding: '16px 32px',
+                        borderRadius: '16px',
+                        fontWeight: 'bold',
+                        border: 'none',
+                        cursor: 'pointer',
+                        boxShadow: '0 8px 16px rgba(239, 68, 68, 0.4)',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '12px',
+                        transition: 'all 0.3s ease',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'scale(1.05) translateY(-2px)';
+                        e.currentTarget.style.boxShadow = '0 12px 24px rgba(239, 68, 68, 0.5)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'scale(1) translateY(0)';
+                        e.currentTarget.style.boxShadow = '0 8px 16px rgba(239, 68, 68, 0.4)';
+                      }}
+                    >
+                      <ArrowDown size={24} /> ¡Más Baja!
+                    </button>
+                  </div>
+                )}
+
+                {isFlipping && (
+                  <div className="mb-8 text-center">
+                    <p 
+                      className="text-xl animate-pulse font-bold"
+                      style={{ color: '#d73719' }}
+                    >
+                      Revelando carta...
+                    </p>
+                  </div>
+                )}
+              </>
+            )}
+
+            {/* Bottom button */}
+            <div className="mt-8">
+              <button
+                type="button"
+                onClick={startNewGame}
+                style={{
+                  background: 'linear-gradient(135deg, #FFA500 0%, #FF8C00 100%)',
+                  color: 'white',
+                  padding: '12px 24px',
+                  borderRadius: '12px',
+                  fontSize: '16px',
+                  fontWeight: 'bold',
+                  border: 'none',
+                  cursor: 'pointer',
+                  boxShadow: '0 6px 12px rgba(255, 165, 0, 0.4)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  transition: 'all 0.3s ease',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'scale(1.05)';
+                  e.currentTarget.style.boxShadow = '0 8px 16px rgba(255, 165, 0, 0.5)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'scale(1)';
+                  e.currentTarget.style.boxShadow = '0 6px 12px rgba(255, 165, 0, 0.4)';
+                }}
+              >
+                <RefreshCcw size={18} /> Nuevo Mazo
+              </button>
             </div>
-
-            {gameState === "showingResult" && (
-              <div className="mb-6 bg-black/80 backdrop-blur-sm rounded-xl p-6 border border-gray-600 text-center">
-                <p className="text-xl font-semibold text-yellow-300">
-                  {lastOutcomeMessage}
-                </p>
-              </div>
-            )}
-
-            {gameState === "waitingForBet" && !isFlipping && (
-              <div className="flex gap-4 mb-8 justify-center">
-                <button
-                  type="button"
-                  onClick={() => handleBet("higher")}
-                  className="bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-4 rounded-xl shadow-lg transition-all inline-flex items-center font-bold hover:shadow-xl transform hover:-translate-y-1"
-                >
-                  <ArrowUp className="mr-3" size={24} /> ¡Más Alta!
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleBet("lower")}
-                  className="bg-red-600 hover:bg-red-700 text-white text-lg px-8 py-4 rounded-xl shadow-lg transition-all inline-flex items-center font-bold hover:shadow-xl transform hover:-translate-y-1"
-                >
-                  <ArrowDown className="mr-3" size={24} /> ¡Más Baja!
-                </button>
-              </div>
-            )}
-
-            {isFlipping && (
-              <div className="mb-8 text-center">
-                <p className="text-lg text-yellow-300 animate-pulse">
-                  Revelando carta...
-                </p>
-              </div>
-            )}
-          </>
-        )}
-      </div>
-
-      <div className="flex gap-4 mt-auto">
-        <button
-          type="button"
-          onClick={startNewGame}
-          className="bg-yellow-600 hover:bg-yellow-700 text-white inline-flex items-center px-4 py-2 rounded-lg font-medium transition-colors shadow-md"
-        >
-          <RefreshCcw className="mr-2" size={18} /> Nuevo Mazo
-        </button>
+          </div>
+        </div>
       </div>
     </div>
   );
