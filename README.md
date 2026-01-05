@@ -1,4 +1,22 @@
-# Welcome to your Lovable project
+# Bar Hunter AR
+
+Una aplicación web interactiva para descubrir bares cercanos con juegos integrados y realidad aumentada.
+
+## 📸 Capturas de Pantalla
+
+<div align="center">
+  <img src="img_examples/screenshot-1.jpeg" width="200" alt="Screenshot 1"/>
+  <img src="img_examples/screenshot-2.jpeg" width="200" alt="Screenshot 2"/>
+  <img src="img_examples/screenshot-3.jpeg" width="200" alt="Screenshot 3"/>
+  <img src="img_examples/screenshot-4.jpeg" width="200" alt="Screenshot 4"/>
+</div>
+
+<div align="center">
+  <img src="img_examples/screenshot-5.jpeg" width="200" alt="Screenshot 5"/>
+  <img src="img_examples/screenshot-6.jpeg" width="200" alt="Screenshot 6"/>
+  <img src="img_examples/screenshot-7.jpeg" width="200" alt="Screenshot 7"/>
+  <img src="img_examples/screenshot-8.jpeg" width="200" alt="Screenshot 8"/>
+</div>
 
 ## Project info
 
@@ -24,10 +42,10 @@ Follow these steps:
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+git clone https://github.com/ItzRoBeerT/bar-hunter-ar.git
 
 # Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+cd BAR-HUNTER-AR
 
 # Step 3: Install the necessary dependencies.
 npm i
